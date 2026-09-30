@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   RETRO FASHION DESIGN SYSTEM — YK MENS FASHION
+   Palette: Warm Cream (#FFF1DF), Deep Forest (#183D35),
+   Muted Teal (#4F8F87), Dusty Blue (#71899A), Butter Yellow (#F2C94C),
+   Burnt Orange (#C96845), Coral (#D96B5F), Terracotta (#B9654E),
+   Soft Sage (#A8B99A), Muted Burgundy (#754447), Warm Brown (#3A302A)
+────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg-cream: #FFF1DF;
+  --bg-card: #FFFBF6;
+  --color-forest: #183D35;
+  --color-teal: #4F8F87;
+  --color-dusty-blue: #71899A;
+  --color-butter: #F2C94C;
+  --color-burnt-orange: #C96845;
+  --color-coral: #D96B5F;
+  --color-terracotta: #B9654E;
+  --color-sage: #A8B99A;
+  --color-burgundy: #754447;
+  --color-warm-brown: #3A302A;
+  --color-ink: #241B16;
+  --nav-height: 4.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--bg-cream);
+  }
+
+  body {
+    background-color: var(--bg-cream);
+    color: var(--color-ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Subtle vintage paper / print grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.026;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-butter);
+    color: var(--color-ink);
+  }
+
+  button {
+    cursor: pointer;
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFF1DF;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E8D5BF;
+    border: 2px solid #FFF1DF;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D96B5F;
+  }
+}
+
+@layer components {
+  /* Editorial label */
+  .label-tag {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* Handwritten accent text */
+  .hand-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1;
+    color: var(--color-terracotta);
+  }
+
+  /* Retro Card Base */
+  .retro-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--color-ink);
+    border-radius: 1.25rem;
+    box-shadow: 4px 4px 0px var(--color-ink);
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .retro-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px var(--color-ink);
+  }
+
+  /* Retro Pill Badge */
+  .retro-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 0px var(--color-ink);
+  }
+
+  /* Primary Button (Coral) */
+  .retro-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.85rem;
+    border: 2px solid var(--color-ink);
+    background-color: var(--color-coral);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px var(--color-ink);
+    transition: all 0.15s ease-out;
+  }
+  .retro-btn-primary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--color-ink);
+    background-color: #E27468;
+  }
+  .retro-btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--color-ink);
+  }
+
+  /* Secondary Button (Butter Yellow) */
+  .retro-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.85rem;
+    border: 2px solid var(--color-ink);
+    background-color: var(--color-butter);
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px var(--color-ink);
+    transition: all 0.15s ease-out;
+  }
+  .retro-btn-secondary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--color-ink);
+    background-color: #F8D164;
+  }
+  .retro-btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--color-ink);
+  }
+
+  /* Burnt Orange Button */
+  .retro-btn-orange {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.85rem;
+    border: 2px solid var(--color-ink);
+    background-color: var(--color-burnt-orange);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px var(--color-ink);
+    transition: all 0.15s ease-out;
+  }
+  .retro-btn-orange:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--color-ink);
+    background-color: #D6653D;
+  }
+  .retro-btn-orange:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--color-ink);
+  }
+
+  /* Outline Button */
+  .retro-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.85rem;
+    border: 2px solid var(--color-ink);
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px var(--color-ink);
+    transition: all 0.15s ease-out;
+  }
+  .retro-btn-outline:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--color-ink);
+    background-color: #FDF7F0;
+  }
+  .retro-btn-outline:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--color-ink);
+  }
+}
