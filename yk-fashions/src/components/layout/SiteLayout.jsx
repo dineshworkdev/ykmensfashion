@@ -12,9 +12,9 @@ export default function SiteLayout() {
   }, [pathname])
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-hidden w-full">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 min-w-0">
         <PageTransition key={pathname}>
           <Outlet />
         </PageTransition>

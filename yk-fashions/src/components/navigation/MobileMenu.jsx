@@ -29,7 +29,7 @@ export default function MobileMenu({ open, onClose }) {
             {/* Top Bar */}
             <div className="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/30 bg-butter text-espresso font-display font-black text-xs">
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/30 bg-[#F2C94C] text-espresso font-display font-black text-xs">
                   YK
                 </div>
                 <span className="font-display font-black text-sm tracking-tight text-white">
@@ -47,13 +47,38 @@ export default function MobileMenu({ open, onClose }) {
 
             {/* Main Editorial Nav Links — Typography-first, no giant boxes */}
             <div className="p-6 flex flex-col justify-center flex-1">
-              <nav className="flex flex-col space-y-1">
+            <nav className="flex flex-col space-y-1">
+                {/* HOME always first */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0, duration: 0.3 }}
+                >
+                  <NavLink
+                    to="/"
+                    end
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                      `group flex items-center justify-between py-3 border-b border-white/10 transition-colors ${
+                        isActive
+                          ? 'text-butter font-black'
+                          : 'text-[#FFF1DF]/90 hover:text-white'
+                      }`
+                    }
+                  >
+                    <span className="font-display font-black text-2xl tracking-tight">
+                      HOME
+                    </span>
+                    <ArrowRight className="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </NavLink>
+                </motion.div>
+
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.to}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * idx, duration: 0.3 }}
+                    transition={{ delay: 0.05 * (idx + 1), duration: 0.3 }}
                   >
                     <NavLink
                       to={link.to}

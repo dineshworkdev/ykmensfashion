@@ -1,0 +1,297 @@
+<USER_REQUEST>
+YK MENS FASHION — FINAL MICRO-FIXES ONLY
+
+IMPORTANT:
+
+The current UI/design is now good.
+
+DO NOT redesign the website.
+
+DO NOT change the existing visual style.
+
+DO NOT change component sizes.
+
+DO NOT change product cards.
+
+DO NOT change typography.
+
+DO NOT change spacing.
+
+DO NOT change layouts.
+
+DO NOT change animations.
+
+DO NOT change the hero.
+
+DO NOT change the existing page designs.
+
+DO NOT add new sections.
+
+Only make the specific fixes listed below.
+
+==================================================
+1. MOBILE NAVBAR — REDUCE CROWDING
+==================================================
+
+On mobile, the current navbar feels too crowded.
+
+Make ONLY the mobile navbar more comfortable and clean.
+
+Keep the same:
+
+- logo
+- branding
+- wishlist
+- bag
+- menu
+- existing visual style
+- colors except for the specific yellow replacement below
+
+Do NOT redesign the navbar.
+
+Do NOT make the navbar dramatically taller.
+
+Do NOT change the overall visual identity.
+
+Simply improve spacing/alignment so the existing elements have enough breathing room and do not feel cramped.
+
+The navbar must fit cleanly within the mobile viewport.
+
+==================================================
+2. REPLACE THE YELLOW ACCENT COLOR
+==================================================
+
+The current yellow accent does not fit the overall YK MENS FASHION visual identity well.
+
+Replace the current yellow accent with a color that better matches the existing retro men's-fashion aesthetic.
+
+Explore a sophisticated muted teal / deep teal / blue-green direction.
+
+For example, start around:
+
+#4F8F87
+
+or a slightly darker/lighter variation if it works better with the existing palette.
+
+IMPORTANT:
+
+Do NOT blindly replace every yellow with teal.
+
+Only replace the current yellow accent where it is being used as the primary accent color.
+
+Preserve the existing cream, coral, terracotta, forest and other colors.
+
+The new accent must:
+
+- work with the existing retro aesthetic
+- have good contrast
+- feel masculine and contemporary
+- remain friendly
+- not look neon
+- not use gradients
+- not change the entire color system
+
+Most importantly:
+
+DO NOT CHANGE ANY OTHER COMPONENT DESIGN JUST TO ACCOMMODATE THE NEW COLOR.
+
+==================================================
+3. ADD HOME TO THE MOBILE MENU
+==================================================
+
+The mobile navigation currently has no obvious way to return to the homepage.
+
+Add:
+
+HOME
+
+at the TOP of the mobile menu list.
+
+The order should be:
+
+HOME
+SHOP
+NEW ARRIVALS
+COLLECTIONS
+LOOKBOOK
+ABOUT
+
+HOME should navigate to:
+
+/
+
+Use the same typography, spacing and animation as the existing menu items.
+
+Do not redesign the menu.
+
+==================================================
+4. REMOVE FACEBOOK FROM FOOTER
+==================================================
+
+Remove Facebook completely from the footer.
+
+Keep the other existing social links.
+
+Do not replace it with another social network.
+
+Do not redesign the footer.
+
+Simply remove the Facebook item and allow the remaining footer content to reflow naturally.
+
+==================================================
+5. FIX MOBILE VIEWPORT / ZOOM / HORIZONTAL OVERFLOW
+==================================================
+
+Some pages, especially the SHOP page on mobile, appear to zoom in/out or become wider than the viewport.
+
+This must be fixed.
+
+The website must behave as a proper responsive mobile website.
+
+Inspect the entire project for:
+
+- horizontal overflow
+- fixed-width elements
+- oversized containers
+- elements extending beyond viewport
+- transforms causing overflow
+- absolute-positioned elements extending outside screen
+- images wider than viewport
+- product grids exceeding viewport
+- buttons wider than viewport
+- navigation elements exceeding viewport
+- animation transforms causing layout overflow
+
+Fix the underlying responsive CSS/layout.
+
+IMPORTANT:
+
+Do NOT simply hide the problem with:
+
+overflow-x: hidden;
+
+unless it is genuinely appropriate.
+
+Find and fix the actual element causing the overflow.
+
+The page must remain within the viewport.
+
+==================================================
+6. MOBILE VIEWPORT BEHAVIOR
+==================================================
+
+Make sure the HTML viewport configuration is correct.
+
+Use the standard mobile viewport configuration:
+
+width=device-width
+initial-scale=1
+
+Do NOT allow the website layout to become wider than the device.
+
+The user should not need to pinch/zoom to see the website properly.
+
+The Shop page and all other pages must remain at the correct mobile scale.
+
+==================================================
+7. CHECK ALL MOBILE ROUTES
+==================================================
+
+After fixing the issue, test:
+
+/
+ /shop
+ /collection/:slug
+ /product/:slug
+ /lookbook
+ /about
+ /search
+ /cart
+ /checkout
+
+Test approximately:
+
+360px
+375px
+390px
+414px
+
+widths.
+
+Check for:
+
+- horizontal scrolling
+- unexpected zooming
+- content extending beyond viewport
+- clipped buttons
+- clipped images
+- broken grids
+- navbar overflow
+- footer overflow
+
+==================================================
+8. VERY IMPORTANT — DO NOT TOUCH ANYTHING ELSE
+==================================================
+
+This is a MICRO-FIX pass.
+
+The current design has already been refined.
+
+DO NOT:
+
+- redesign the hero
+- redesign product cards
+- redesign buttons
+- redesign footer
+- redesign mobile menu
+- change typography
+- change component sizes
+- change spacing
+- add animations
+- remove animations
+- change imagery
+- change page layouts
+- add sections
+- remove sections
+- change product content
+
+ONLY perform these five requested changes:
+
+1. Reduce mobile navbar crowding.
+2. Replace the current yellow accent with a suitable muted teal/blue-green accent.
+3. Add HOME at the top of the mobile menu.
+4. Remove Facebook from the footer.
+5. Fix mobile viewport overflow/zoom issues.
+
+Everything else must remain visually unchanged.
+
+==================================================
+9. FINAL VERIFICATION
+==================================================
+
+Before finishing:
+
+- Run the project.
+- Check desktop to ensure nothing changed unexpectedly.
+- Check mobile.
+- Verify HOME navigation works.
+- Verify Facebook is gone.
+- Verify yellow accent has been replaced appropriately.
+- Verify navbar is comfortable.
+- Verify Shop page does not zoom or extend beyond the viewport.
+- Verify no horizontal scrolling exists.
+- Verify all routes remain functional.
+
+If any unrelated visual component changes during implementation, revert that change.
+
+This is a surgical refinement, NOT another redesign.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-30T17:55:51+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Dineshwork.in\Projects\Sample Projects\yk-fashions\yk-fashions\index.html (LANGUAGE_HTML)
+Cursor is on line: 1
+Other open documents:
+- c:\Dineshwork.in\Projects\Sample Projects\yk-fashions\yk-fashions\index.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>

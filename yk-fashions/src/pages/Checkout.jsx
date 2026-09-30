@@ -58,7 +58,7 @@ export default function Checkout() {
               <RetroStampBadge className="w-24 h-24 text-forest" centerText="PAID" text="100% HEAVY COTTON • YK MENS FASHION • " />
             </div>
 
-            <span className="retro-pill bg-butter text-espresso mb-3">
+            <span className="retro-pill bg-butter text-white mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               ORDER CONFIRMED
             </span>
@@ -134,7 +134,7 @@ export default function Checkout() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         {/* ── Checkout Header ─────────────────────────────── */}
         <div className="mb-8">
-          <span className="retro-pill bg-butter text-espresso mb-3">
+          <span className="retro-pill bg-butter text-white mb-3">
             <DoodleStar className="w-3.5 h-3.5" />
             ATELIER DISPATCH
           </span>

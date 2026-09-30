@@ -102,7 +102,7 @@ export default function Product() {
                 {/* Badge Overlay */}
                 {product.badge && (
                   <div className="absolute top-3 left-3">
-                    <span className="retro-pill bg-butter text-espresso shadow-retro">
+                    <span className="retro-pill bg-butter text-white shadow-retro">
                       <DoodleStar className="w-3 h-3" />
                       {product.badge}
                     </span>

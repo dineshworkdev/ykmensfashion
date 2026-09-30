@@ -98,7 +98,7 @@ export default function Lookbook() {
 
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="max-w-3xl">
-            <span className="retro-pill bg-butter text-espresso mb-4">
+            <span className="retro-pill bg-butter text-white mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               PRINT ISSUE 04 / MEN'S SPRING-SUMMER 2026
             </span>

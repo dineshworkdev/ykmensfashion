@@ -16,7 +16,7 @@
   --color-forest: #183D35;
   --color-teal: #4F8F87;
   --color-dusty-blue: #71899A;
-  --color-butter: #F2C94C;
+  --color-butter: #4F8F87;
   --color-burnt-orange: #C96845;
   --color-coral: #D96B5F;
   --color-terracotta: #B9654E;
@@ -28,10 +28,20 @@
 }
 
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     background-color: var(--bg-cream);
+    overflow-x: hidden;
+  }
+
+  img, video, svg, canvas {
+    max-width: 100%;
+    height: auto;
   }
 
   body {
@@ -62,8 +72,8 @@
   }
 
   ::selection {
-    background-color: var(--color-butter);
-    color: var(--color-ink);
+    background-color: var(--color-teal);
+    color: #ffffff;
   }
 
   button {
@@ -181,8 +191,8 @@
     padding: 0.85rem 1.75rem;
     border-radius: 0.85rem;
     border: 2px solid var(--color-ink);
-    background-color: var(--color-butter);
-    color: var(--color-ink);
+    background-color: var(--color-teal);
+    color: #ffffff;
     font-weight: 700;
     font-size: 0.88rem;
     letter-spacing: 0.05em;
@@ -193,7 +203,7 @@
   .retro-btn-secondary:hover {
     transform: translate(-1px, -1px);
     box-shadow: 5px 5px 0px var(--color-ink);
-    background-color: #F8D164;
+    background-color: #3d7a73;
   }
   .retro-btn-secondary:active {
     transform: translate(2px, 2px);
@@ -254,5 +264,22 @@
   .retro-btn-outline:active {
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0px var(--color-ink);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar while keeping scroll functionality */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Prevent element from exceeding viewport width */
+  .mobile-safe {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }

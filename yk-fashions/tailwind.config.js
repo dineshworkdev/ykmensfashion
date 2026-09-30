@@ -13,7 +13,7 @@ export default {
         forest:       '#183D35', // Deep Forest
         teal:         '#4F8F87', // Muted Teal
         'dusty-blue': '#71899A', // Dusty Blue
-        butter:       '#F2C94C', // Butter Yellow
+        butter:       '#4F8F87', // Muted Teal — primary UI accent (replaces yellow)
         'burnt-orange':'#C96845', // Burnt Orange
         coral:        '#D96B5F', // Coral
         terracotta:   '#B9654E', // Terracotta
@@ -40,7 +40,7 @@ export default {
         'retro-xl':'8px 8px 0px #241B16',
         'retro-white':'4px 4px 0px #FFF1DF',
         'retro-coral':'4px 4px 0px #D96B5F',
-        'retro-butter':'4px 4px 0px #F2C94C',
+        'retro-butter':'4px 4px 0px #4F8F87',
       },
       borderWidth: {
         '2': '2px',

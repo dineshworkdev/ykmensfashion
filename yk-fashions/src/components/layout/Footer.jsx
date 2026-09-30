@@ -20,21 +20,7 @@ function InstagramIcon({ className = 'w-4 h-4' }) {
   )
 }
 
-function FacebookIcon({ className = 'w-4 h-4' }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  )
-}
+
 
 const footerLinks = [
   {
@@ -74,12 +60,6 @@ const socialLinks = [
     icon: InstagramIcon,
   },
   {
-    href: 'https://facebook.com',
-    label: 'Facebook',
-    handle: 'YK Mens Fashion Studio',
-    icon: FacebookIcon,
-  },
-  {
     href: 'https://pinterest.com',
     label: 'Pinterest',
     handle: 'ykmensfashion_board',
@@ -96,7 +76,7 @@ export default function Footer() {
           {/* Brand Info & Stamp (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#FFF1DF] bg-butter text-espresso font-display font-black text-xl shadow-[2px_2px_0px_#FFF1DF]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#FFF1DF] bg-[#F2C94C] text-espresso font-display font-black text-xl shadow-[2px_2px_0px_#FFF1DF]">
                 YK
               </div>
               <span className="font-display font-black text-2xl tracking-tight text-white">

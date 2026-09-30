@@ -100,10 +100,10 @@ export default function Shop() {
       </section>
 
       {/* ── 2. Sticky Filter & Sort Controls ────────────────── */}
-      <div className="sticky top-[4.5rem] z-20 border-b-2 border-espresso bg-[#FFF1DF]/95 backdrop-blur-md py-3.5 px-4 sm:px-6 lg:px-10 shadow-sm">
-        <div className="mx-auto max-w-[1440px] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="sticky top-[4.5rem] z-20 border-b-2 border-espresso bg-[#FFF1DF]/95 backdrop-blur-md py-3.5 shadow-sm w-full">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           {/* Category Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
             {categoryTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -115,7 +115,7 @@ export default function Shop() {
                 }}
                 className={`whitespace-nowrap px-4 py-2 rounded-xl border-2 border-espresso font-display font-black text-xs uppercase tracking-wider transition-all ${
                   activeCategory === tab.id
-                    ? 'bg-butter text-espresso shadow-[2px_2px_0px_#241B16]'
+                    ? 'bg-butter text-white shadow-[2px_2px_0px_#241B16]'
                     : 'bg-white text-espresso hover:bg-cream-dark shadow-none'
                 }`}
               >

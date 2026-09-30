@@ -33,7 +33,7 @@ export default function Cart() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         {/* ── Cart Header ─────────────────────────────────── */}
         <div className="mb-10">
-          <span className="retro-pill bg-butter text-espresso mb-3">
+          <span className="retro-pill bg-butter text-white mb-3">
             <ShoppingBag className="w-3.5 h-3.5" />
             MEN'S SHOPPING BAG
           </span>

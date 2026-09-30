@@ -85,7 +85,7 @@ export default function ProductCard({ product, index = 0 }) {
                 <span
                   className={`inline-block px-2 py-0.5 rounded-full border border-espresso text-[9px] font-black uppercase tracking-wider ${
                     product.badge === 'NEW DROP'
-                      ? 'bg-butter text-espresso'
+                      ? 'bg-butter text-white'
                       : product.badge === 'LIMITED'
                       ? 'bg-coral text-white'
                       : 'bg-teal text-white'
@@ -117,7 +117,7 @@ export default function ProductCard({ product, index = 0 }) {
                 className={`w-full py-1.5 px-2 rounded-lg border-2 border-espresso font-bold text-xs uppercase tracking-wider shadow-[2px_2px_0px_#241B16] flex items-center justify-center gap-1 transition-all ${
                   justAdded
                     ? 'bg-sage text-espresso'
-                    : 'bg-butter hover:bg-[#fae082] text-espresso'
+                    : 'bg-butter hover:bg-teal text-white'
                 }`}
               >
                 {justAdded ? (

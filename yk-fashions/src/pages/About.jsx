@@ -37,7 +37,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left text */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="retro-pill bg-butter text-espresso mb-4">
+              <span className="retro-pill bg-butter text-white mb-4">
                 <DoodleStar className="w-3.5 h-3.5" />
                 OUR ORIGIN STORY
               </span>
@@ -96,7 +96,7 @@ export default function About() {
       <section className="border-b-3 border-espresso bg-[#183D35] text-[#FFF1DF] py-16 sm:py-24">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="text-center max-w-xl mx-auto mb-14">
-            <span className="retro-pill bg-butter text-espresso mb-3">
+            <span className="retro-pill bg-butter text-white mb-3">
               ✦ CORE PRINCIPLES ✦
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl text-white mb-3">

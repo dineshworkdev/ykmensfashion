@@ -32,7 +32,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative overflow-hidden bg-[#FFF1DF]">
+    <div className="relative bg-[#FFF1DF]">
       {/* ─────────────────────────────────────────────────────────────
           1. CLEAN, ART-DIRECTED RETRO HERO
           Mobile-first, compact, elegant: Strong photograph, clear headline,
