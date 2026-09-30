@@ -9,7 +9,7 @@ function InstagramIcon({ className = 'w-4 h-4' }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
@@ -20,16 +20,14 @@ function InstagramIcon({ className = 'w-4 h-4' }) {
   )
 }
 
-
-
 const footerLinks = [
   {
     heading: 'SHOP ARCHIVE',
     links: [
-      { to: '/shop', label: "All Men's Products" },
+      { to: '/shop', label: "All Men's Pieces" },
       { to: '/shop?filter=new', label: 'New Arrivals' },
       { to: '/collection/oversized', label: 'Oversized Series' },
-      { to: '/collection/graphic', label: 'Graphic Drops' },
+      { to: '/collection/graphic', label: 'Graphic Editions' },
       { to: '/collection/essentials', label: 'Daily Essentials' },
     ],
   },
@@ -37,8 +35,8 @@ const footerLinks = [
     heading: 'EDITORIAL',
     links: [
       { to: '/lookbook', label: 'Lookbook 04' },
-      { to: '/about', label: 'About Atelier' },
-      { to: '/search', label: 'Search Archive' },
+      { to: '/about', label: 'Atelier Story' },
+      { to: '/search', label: 'Search Catalogue' },
     ],
   },
   {
@@ -62,43 +60,43 @@ const socialLinks = [
   {
     href: 'https://pinterest.com',
     label: 'Pinterest',
-    handle: 'ykmensfashion_board',
+    handle: 'ykmensfashion',
     icon: Compass,
   },
 ]
 
 export default function Footer() {
   return (
-    <footer className="border-t-3 border-espresso bg-[#183D35] text-[#FFF1DF]">
+    <footer className="border-t border-espresso/20 bg-[#14382F] text-[#FFF1DF]">
       {/* ── Upper Footer ───────────────────────────── */}
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
-          {/* Brand Info & Stamp (5 cols) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* Brand Info & Atelier Hallmark (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#FFF1DF] bg-[#F2C94C] text-espresso font-display font-black text-xl shadow-[2px_2px_0px_#FFF1DF]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-[2px] border border-white/30 bg-white/10 text-white font-serif italic text-base font-bold">
                 YK
               </div>
-              <span className="font-display font-black text-2xl tracking-tight text-white">
+              <span className="font-display font-bold text-xl tracking-tight text-white">
                 YK MENS FASHION
               </span>
             </div>
 
-            <p className="font-sans text-sm text-[#FFF1DF]/80 font-medium max-w-sm mb-6 leading-relaxed">
-              An independent retro men's streetwear atelier. We create high-density
-              240 GSM organic tees that fuse artistic printmaking with modern
-              relaxed boxy silhouettes.
+            <p className="font-sans text-xs sm:text-sm text-[#FFF1DF]/75 font-normal max-w-sm mb-6 leading-relaxed">
+              Independent retro men's streetwear atelier. We create high-density
+              240 GSM organic combed cotton t-shirts that fuse artistic printmaking with modern
+              relaxed boxy cuts.
             </p>
 
-            {/* Retro Stamp */}
-            <div className="p-3.5 rounded-2xl border-2 border-white/20 bg-white/10 shadow-retro flex items-center gap-3 backdrop-blur-xs">
-              <RetroStampBadge className="w-14 h-14 text-butter" centerText="YK" text="100% HEAVY COTTON • YK MENS FASHION • " />
+            {/* Atelier Hallmark Stamp */}
+            <div className="p-3 rounded-[2px] border border-white/15 bg-white/5 flex items-center gap-3">
+              <RetroStampBadge className="w-12 h-12 text-[#FFF1DF]" centerText="YK" text="100% HEAVY COTTON • YK MENS FASHION • " />
               <div>
-                <span className="font-display font-black text-xs text-white block">
-                  100% PRE-SHRUNK ORGANIC COTTON
+                <span className="font-sans font-bold text-xs text-white block">
+                  100% COMBED ORGANIC COTTON
                 </span>
-                <span className="text-[11px] font-medium text-[#FFF1DF]/70">
-                  Ethically milled & screenprinted for men
+                <span className="text-[10px] text-[#FFF1DF]/60">
+                  Ethically milled & hand-printed in Mumbai
                 </span>
               </div>
             </div>
@@ -108,7 +106,7 @@ export default function Footer() {
           <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-6">
             {footerLinks.map((col) => (
               <div key={col.heading}>
-                <p className="text-[11px] font-black uppercase tracking-wider text-coral mb-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-coral mb-3">
                   {col.heading}
                 </p>
                 <ul className="flex flex-col gap-2">
@@ -116,7 +114,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         to={link.to}
-                        className="text-xs font-medium text-[#FFF1DF]/80 hover:text-butter transition-colors"
+                        className="text-xs text-[#FFF1DF]/75 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -127,12 +125,12 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Social Links & Hours (3 cols) */}
+          {/* Social Links & Atelier Hours (3 cols) */}
           <div className="lg:col-span-3">
-            <p className="text-[11px] font-black uppercase tracking-wider text-coral mb-3">
-              CONNECT WITH US
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-coral mb-3">
+              ATELIER DESK
             </p>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2 mb-4">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon
                 return (
@@ -141,29 +139,29 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-2.5 rounded-xl border-2 border-white/20 bg-white/10 hover:bg-white/20 transition-all text-xs font-bold text-white group shadow-[2px_2px_0px_rgba(0,0,0,0.3)]"
+                    className="flex items-center justify-between p-2 rounded-[2px] border border-white/15 bg-white/5 hover:bg-white/10 transition-all text-xs font-medium text-white group"
                   >
                     <div className="flex items-center gap-2">
-                      <IconComponent className="w-4 h-4 text-butter group-hover:scale-110 transition-transform" />
+                      <IconComponent className="w-4 h-4 text-coral" />
                       <span>{social.label}</span>
                     </div>
-                    <span className="text-[10px] text-[#FFF1DF]/70 flex items-center gap-1">
+                    <span className="text-[10px] text-[#FFF1DF]/60 flex items-center gap-1">
                       <span>{social.handle}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                     </span>
                   </a>
                 )
               })}
             </div>
 
-            <div className="mt-4 p-3 rounded-xl border-2 border-dashed border-white/20 bg-white/5 flex items-start gap-2.5">
-              <Clock className="w-4 h-4 text-butter shrink-0 mt-0.5" />
+            <div className="p-3 rounded-[2px] border border-white/10 bg-white/5 flex items-start gap-2.5">
+              <Clock className="w-4 h-4 text-coral shrink-0 mt-0.5" />
               <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-butter block mb-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white block mb-0.5">
                   ATELIER HOURS
                 </span>
-                <span className="text-xs font-medium text-[#FFF1DF]/80">
-                  Mon – Sat: 10:00 AM – 8:00 PM IST
+                <span className="text-xs text-[#FFF1DF]/70">
+                  Mon – Sat: 10:00 AM – 7:30 PM IST
                 </span>
               </div>
             </div>
@@ -172,23 +170,23 @@ export default function Footer() {
       </div>
 
       {/* ── Lower Footer Strip ───────────────────────────── */}
-      <div className="border-t-2 border-white/15 bg-[#122E28] py-4 px-4 sm:px-6 lg:px-10">
+      <div className="border-t border-white/10 bg-[#0E2620] py-4 px-4 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1440px] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="text-[11px] font-medium text-[#FFF1DF]/70">
+          <p className="text-[11px] text-[#FFF1DF]/60 font-medium">
             © {new Date().getFullYear()} YK MENS FASHION ATELIER. ALL RIGHTS RESERVED.
           </p>
 
-          <div className="flex items-center gap-4 text-[11px] font-medium text-[#FFF1DF]/70">
-            <Link to="/about" className="hover:text-butter transition-colors">
+          <div className="flex items-center gap-4 text-[11px] text-[#FFF1DF]/60">
+            <Link to="/about" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <span>•</span>
-            <Link to="/about" className="hover:text-butter transition-colors">
+            <Link to="/about" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
             <span>•</span>
-            <Link to="/about" className="hover:text-butter transition-colors">
-              Shipping Policy
+            <Link to="/about" className="hover:text-white transition-colors">
+              Shipping & Exchanges
             </Link>
           </div>
         </div>

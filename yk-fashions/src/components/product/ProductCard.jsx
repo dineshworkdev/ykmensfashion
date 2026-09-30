@@ -40,125 +40,133 @@ export default function ProductCard({ product, index = 0 }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
-      transition={{ duration: 0.4, delay: (index % 4) * 0.05 }}
+      transition={{ duration: 0.35, delay: (index % 4) * 0.04 }}
       className="group flex flex-col justify-between"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div
-        className="rounded-2xl border-2 border-espresso bg-white p-2 sm:p-3 flex flex-col justify-between h-full shadow-[2px_2px_0px_#241B16] hover:shadow-[3px_3px_0px_#241B16] hover:-translate-y-0.5 transition-all"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <div>
-          {/* ── Image Container (Dominates the card) ─────────────────────────── */}
-          <Link
-            to={`/product/${product.slug}`}
-            className="relative block aspect-[4/5] w-full overflow-hidden rounded-xl border border-espresso/30 bg-[#F7EFE5]"
-          >
-            {/* Primary Image */}
+      <div className="flex flex-col h-full bg-white rounded-sm border border-espresso/15 hover:border-espresso/35 transition-all duration-300 shadow-[0_2px_8px_-2px_rgba(36,27,22,0.04)] hover:shadow-[0_12px_24px_-6px_rgba(36,27,22,0.08)] p-2 sm:p-2.5">
+        {/* ── 1. Dominant Product Image ───────────────────────────── */}
+        <Link
+          to={`/product/${product.slug}`}
+          className="relative block aspect-[3/4] w-full overflow-hidden rounded-[2px] bg-[#F4EDE4]"
+        >
+          {/* Primary View */}
+          <img
+            src={img1}
+            alt={product.name}
+            loading="lazy"
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-out ${
+              hovered ? 'scale-[1.03] opacity-0' : 'scale-100 opacity-100'
+            }`}
+          />
+
+          {/* Alternate Angle View */}
+          {img2 && (
             <img
-              src={img1}
-              alt={product.name}
+              src={img2}
+              alt={`${product.name} alternate angle`}
               loading="lazy"
-              className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ${
-                hovered ? 'scale-105 opacity-0' : 'scale-100 opacity-100'
+              className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-out ${
+                hovered ? 'scale-[1.03] opacity-100' : 'scale-100 opacity-0'
               }`}
             />
+          )}
 
-            {/* Hover Secondary Image */}
-            {img2 && (
-              <img
-                src={img2}
-                alt={`${product.name} alternate view`}
-                loading="lazy"
-                className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ${
-                  hovered ? 'scale-105 opacity-100' : 'scale-100 opacity-0'
-                }`}
-              />
-            )}
-
-            {/* Subtle Badge */}
-            {product.badge && (
-              <div className="absolute top-2 left-2 z-10">
-                <span
-                  className={`inline-block px-2 py-0.5 rounded-full border border-espresso text-[9px] font-black uppercase tracking-wider ${
-                    product.badge === 'NEW DROP'
-                      ? 'bg-butter text-white'
-                      : product.badge === 'LIMITED'
-                      ? 'bg-coral text-white'
-                      : 'bg-teal text-white'
-                  }`}
-                >
-                  {product.badge}
-                </span>
-              </div>
-            )}
-
-            {/* Wishlist Button */}
-            <button
-              onClick={handleWishlist}
-              aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}
-              className="absolute top-2 right-2 z-10 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-espresso bg-white/95 shadow-[1px_1px_0px_#241B16] active:scale-95 transition-transform"
-            >
-              <Heart
-                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors ${
-                  wished ? 'text-coral fill-[#D96B5F]' : 'text-espresso'
-                }`}
-                strokeWidth={2.5}
-              />
-            </button>
-
-            {/* Quick Add Button on Desktop Hover / Clean Touch on Mobile */}
-            <div className="absolute inset-x-2 bottom-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
-              <button
-                onClick={handleQuickAdd}
-                className={`w-full py-1.5 px-2 rounded-lg border-2 border-espresso font-bold text-xs uppercase tracking-wider shadow-[2px_2px_0px_#241B16] flex items-center justify-center gap-1 transition-all ${
-                  justAdded
-                    ? 'bg-sage text-espresso'
-                    : 'bg-butter hover:bg-teal text-white'
-                }`}
-              >
-                {justAdded ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    <span>ADDED</span>
-                  </>
-                ) : (
-                  <>
-                    <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>QUICK ADD</span>
-                  </>
-                )}
-              </button>
+          {/* Subtle Archival Badge */}
+          {product.badge && (
+            <div className="absolute top-2.5 left-2.5 z-10">
+              <span className="inline-block px-2 py-0.5 rounded-[2px] border border-espresso/20 bg-white/95 text-[9px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs backdrop-blur-xs">
+                {product.badge}
+              </span>
             </div>
-          </Link>
+          )}
 
-          {/* ── Product Info ───────────────────────────── */}
-          <div className="mt-2.5 px-0.5">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-espresso/60 block mb-0.5">
-              {product.category}
-            </span>
+          {/* Wishlist Button */}
+          <button
+            onClick={handleWishlist}
+            aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}
+            className="absolute top-2.5 right-2.5 z-10 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-espresso/15 bg-white/90 backdrop-blur-xs text-espresso hover:bg-white active:scale-95 transition-all shadow-xs"
+          >
+            <Heart
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors ${
+                wished ? 'text-coral fill-[#D96B5F]' : 'text-espresso/70'
+              }`}
+              strokeWidth={2}
+            />
+          </button>
+
+          {/* Desktop Hover Quick Add Pill Overlay */}
+          <div className="absolute inset-x-2.5 bottom-2.5 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 hidden sm:block translate-y-1 group-hover:translate-y-0">
+            <button
+              onClick={handleQuickAdd}
+              className={`w-full py-2 px-3 rounded-[2px] font-sans font-bold text-xs uppercase tracking-[0.12em] flex items-center justify-center gap-1.5 transition-all shadow-sm ${
+                justAdded
+                  ? 'bg-sage text-espresso'
+                  : 'bg-espresso text-cream hover:bg-coral hover:text-white'
+              }`}
+            >
+              {justAdded ? (
+                <>
+                  <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <span>ADDED TO BAG</span>
+                </>
+              ) : (
+                <>
+                  <Plus className="w-3.5 h-3.5 stroke-[2]" />
+                  <span>QUICK ADD</span>
+                </>
+              )}
+            </button>
+          </div>
+        </Link>
+
+        {/* ── 2. Clean Product Information ───────────────────────────── */}
+        <div className="pt-3 pb-1 px-1 flex flex-col justify-between flex-1">
+          <div>
+            <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.16em] text-espresso/50 mb-1">
+              <span>{product.category}</span>
+              <span className="text-[9px] text-espresso/40">240 GSM</span>
+            </div>
+
             <Link to={`/product/${product.slug}`}>
-              <h3 className="font-display font-bold text-xs sm:text-sm text-espresso line-clamp-1 group-hover:text-coral transition-colors">
+              <h3 className="font-display font-medium text-xs sm:text-[14px] text-espresso leading-snug line-clamp-1 group-hover:text-coral transition-colors">
                 {product.name}
               </h3>
             </Link>
           </div>
-        </div>
 
-        {/* ── Price Row ───────────────────────────── */}
-        <div className="mt-2 pt-2 border-t border-espresso/10 flex items-center justify-between px-0.5">
-          <span className="font-display font-black text-sm sm:text-base text-espresso">
-            {formatPrice(product.price)}
-          </span>
-          <Link
-            to={`/product/${product.slug}`}
-            className="text-[11px] font-bold text-coral hover:underline"
-          >
-            Details
-          </Link>
+          {/* Price & Action Row */}
+          <div className="mt-2.5 pt-2 border-t border-espresso/10 flex items-center justify-between">
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-sans font-bold text-sm sm:text-[15px] text-espresso">
+                {formatPrice(product.price)}
+              </span>
+            </div>
+
+            {/* Mobile Touch Quick Add Button */}
+            <button
+              onClick={handleQuickAdd}
+              className={`sm:hidden flex items-center gap-1 py-1 px-2 rounded-[2px] text-[10px] font-bold uppercase tracking-wider border transition-colors ${
+                justAdded
+                  ? 'bg-sage border-sage text-espresso'
+                  : 'border-espresso bg-espresso text-white'
+              }`}
+            >
+              {justAdded ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
+              <span>{justAdded ? 'ADDED' : 'BAG'}</span>
+            </button>
+
+            <Link
+              to={`/product/${product.slug}`}
+              className="hidden sm:inline text-[11px] font-semibold text-espresso/60 hover:text-espresso tracking-wide underline underline-offset-2 transition-colors"
+            >
+              Details
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

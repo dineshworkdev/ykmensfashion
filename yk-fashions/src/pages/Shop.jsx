@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Search, X, Shirt, SlidersHorizontal, ArrowUpDown } from 'lucide-react'
 import ProductCard from '../components/product/ProductCard.jsx'
 import { products } from '../data/products.js'
-import { DoodleStar, WavyUnderline } from '../components/common/Doodles.jsx'
+import { DoodleStar, AnimatedWavyUnderline } from '../components/common/Doodles.jsx'
 
 const categoryTabs = [
   { id: 'ALL', label: "ALL MEN'S" },
@@ -75,24 +75,24 @@ export default function Shop() {
   }, [activeCategory, sortBy, searchTerm])
 
   return (
-    <div className="bg-[#FFF1DF] min-h-screen">
-      {/* ── 1. Editorial Header (Warm Cream) ───────────────────────────── */}
-      <section className="border-b-3 border-espresso bg-[#FFF1DF] py-12 sm:py-16">
+    <div className="bg-[#FFF1DF] min-h-screen text-espresso">
+      {/* ── 1. Editorial Header ───────────────────────────── */}
+      <section className="border-b border-espresso/15 bg-[#FFF1DF] py-12 sm:py-16">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-espresso bg-butter text-[11px] font-black uppercase tracking-wider text-espresso mb-3 shadow-[2px_2px_0px_#241B16]">
-              <DoodleStar className="w-3.5 h-3.5" />
-              MEN'S ATELIER CATALOGUE
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.18em] text-espresso mb-3 shadow-xs">
+              <DoodleStar className="w-3 h-3 text-coral" />
+              MEN'S CATALOGUE ARCHIVE
             </div>
-            <h1 className="font-display font-black text-4xl sm:text-6xl text-espresso mb-4">
-              SHOP{' '}
-              <span className="relative inline-block text-coral">
-                ALL.
-                <WavyUnderline className="absolute -bottom-2 left-0 w-full h-3 text-butter" />
+            <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-espresso mb-3 tracking-tight">
+              ALL MEN'S{' '}
+              <span className="font-serif italic font-normal text-coral relative inline-block">
+                Pieces.
+                <AnimatedWavyUnderline className="absolute -bottom-1 left-0 w-full h-2 text-coral" />
               </span>
             </h1>
-            <p className="font-sans text-sm sm:text-base text-espresso/80 font-medium leading-relaxed">
-              Explore our complete collection of 240 GSM organic men's tees, silk-screened
+            <p className="font-sans text-xs sm:text-sm text-espresso/70 font-normal leading-relaxed">
+              Explore our complete collection of 240 GSM organic cotton t-shirts, silk-screened
               limited editions, and daily heavy blanks.
             </p>
           </div>
@@ -100,10 +100,10 @@ export default function Shop() {
       </section>
 
       {/* ── 2. Sticky Filter & Sort Controls ────────────────── */}
-      <div className="sticky top-[4.5rem] z-20 border-b-2 border-espresso bg-[#FFF1DF]/95 backdrop-blur-md py-3.5 shadow-sm w-full">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="sticky top-[3.75rem] sm:top-[4.25rem] z-20 border-b border-espresso/15 bg-[#FFF1DF]/95 backdrop-blur-md py-3 shadow-xs w-full">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3.5">
           {/* Category Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
             {categoryTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -113,10 +113,10 @@ export default function Shop() {
                     setSearchParams({})
                   }
                 }}
-                className={`whitespace-nowrap px-4 py-2 rounded-xl border-2 border-espresso font-display font-black text-xs uppercase tracking-wider transition-all ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[2px] font-sans text-xs font-bold uppercase tracking-[0.12em] transition-all ${
                   activeCategory === tab.id
-                    ? 'bg-butter text-white shadow-[2px_2px_0px_#241B16]'
-                    : 'bg-white text-espresso hover:bg-cream-dark shadow-none'
+                    ? 'bg-espresso text-cream shadow-xs'
+                    : 'bg-white/80 border border-espresso/15 text-espresso/80 hover:text-espresso hover:bg-white'
                 }`}
               >
                 {tab.label}
@@ -124,22 +124,22 @@ export default function Shop() {
             ))}
           </div>
 
-          {/* Right Controls: Instant Search & Sort Dropdown */}
-          <div className="flex items-center gap-3 self-end md:self-auto w-full md:w-auto">
-            {/* Quick search input with proper Lucide icon */}
-            <div className="relative flex-1 md:w-56">
+          {/* Right Controls: Search & Sort Dropdown */}
+          <div className="flex items-center gap-2.5 self-end md:self-auto w-full md:w-auto">
+            {/* Quick search input with Lucide icon */}
+            <div className="relative flex-1 md:w-60">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Filter by keyword..."
-                className="w-full pl-8 pr-7 py-1.5 rounded-xl border-2 border-espresso bg-white text-xs font-bold text-espresso placeholder-espresso/40 focus:outline-none focus:bg-cream-card shadow-[2px_2px_0px_#241B16]"
+                placeholder="Search archive..."
+                className="w-full pl-8 pr-7 py-1.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso placeholder-espresso/45 focus:outline-none focus:border-espresso"
               />
-              <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-espresso/60" />
+              <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-espresso/50" />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-2.5 top-2 text-xs font-bold text-espresso/60 hover:text-espresso"
+                  className="absolute right-2.5 top-2 text-xs text-espresso/50 hover:text-espresso"
                   aria-label="Clear search"
                 >
                   <X className="w-3.5 h-3.5" />
@@ -149,14 +149,14 @@ export default function Shop() {
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-1.5 shrink-0">
-              <label className="text-[11px] font-black uppercase text-espresso/70 hidden sm:flex items-center gap-1">
+              <label className="text-[10px] font-bold uppercase tracking-wider text-espresso/60 hidden sm:flex items-center gap-1">
                 <ArrowUpDown className="w-3 h-3" />
                 SORT:
               </label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-1.5 rounded-xl border-2 border-espresso bg-white font-bold text-xs text-espresso shadow-[2px_2px_0px_#241B16] focus:outline-none cursor-pointer"
+                className="px-2.5 py-1.5 rounded-[2px] border border-espresso/25 bg-white font-sans text-xs font-medium text-espresso focus:outline-none focus:border-espresso cursor-pointer"
               >
                 {sortOptions.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -169,26 +169,26 @@ export default function Shop() {
         </div>
       </div>
 
-      {/* ── 3. Teal Product Area (Section 6: "Editorial cream + teal product area") ── */}
-      <section className="bg-[#4F8F87] py-10 sm:py-16 border-b-3 border-espresso">
+      {/* ── 3. High-Fashion Gallery Grid (Warm Cream Canvas) ────────────────── */}
+      <section className="bg-[#FFF1DF] py-10 sm:py-16">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          {/* Count Bar */}
-          <div className="flex items-center justify-between mb-8 pb-3 border-b-2 border-dashed border-white/30">
-            <span className="font-hand text-2xl text-butter">
+          {/* Subtle Count & Archive Bar */}
+          <div className="flex items-center justify-between mb-8 pb-3 border-b border-espresso/10">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-espresso/70">
               Showing {filteredProducts.length} pieces in {activeCategory.toLowerCase()}
             </span>
-            <span className="text-xs font-bold text-white/80 uppercase tracking-widest">
-              MEN'S 240 GSM ARCHIVE
+            <span className="text-[10px] font-mono text-espresso/50 uppercase tracking-widest hidden sm:inline">
+              240 GSM ATELIER RUN
             </span>
           </div>
 
           {filteredProducts.length === 0 ? (
-            <div className="py-20 text-center rounded-3xl border-3 border-espresso bg-[#FFF1DF] text-espresso p-8 shadow-retro-xl">
-              <Shirt className="w-12 h-12 text-espresso/40 mx-auto mb-3" />
-              <h3 className="font-display font-black text-2xl text-espresso mb-2">
-                No men's pieces match your selection.
+            <div className="py-20 text-center rounded-sm border border-espresso/15 bg-white text-espresso p-8 shadow-sm max-w-lg mx-auto">
+              <Shirt className="w-10 h-10 text-espresso/30 mx-auto mb-3" />
+              <h3 className="font-display font-bold text-xl text-espresso mb-2">
+                No pieces match your selection
               </h3>
-              <p className="text-sm font-medium text-espresso/60 mb-6">
+              <p className="text-xs font-normal text-espresso/60 mb-6">
                 Try adjusting your category filter or search keywords.
               </p>
               <button
@@ -202,7 +202,7 @@ export default function Shop() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {filteredProducts.map((product, idx) => (
                 <ProductCard key={product.id} product={product} index={idx} />
               ))}

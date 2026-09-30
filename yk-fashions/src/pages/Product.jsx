@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, ArrowRight, Plus, Minus, Check, Heart, ChevronDown, X, Sparkles, ShieldCheck } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
@@ -7,10 +7,11 @@ import { useWishlist } from '../context/WishlistContext.jsx'
 import ProductCard from '../components/product/ProductCard.jsx'
 import { getProductBySlug, products } from '../data/products.js'
 import { formatPrice } from '../lib/format.js'
-import { DoodleStar, AnimatedSketchArrow, RetroStampBadge, WavyUnderline } from '../components/common/Doodles.jsx'
+import { DoodleStar, EditorialMark } from '../components/common/Doodles.jsx'
 
 export default function Product() {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const product = getProductBySlug(slug)
 
   const [mainImgIdx, setMainImgIdx] = useState(0)
@@ -28,15 +29,15 @@ export default function Product() {
   if (!product) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center bg-[#FFF1DF]">
-        <Search className="w-16 h-16 text-espresso/40 mb-4" />
-        <h2 className="font-display font-black text-3xl text-espresso mb-2">
-          Piece Not Found In Archive
+        <Search className="w-12 h-12 text-espresso/30 mb-4" />
+        <h2 className="font-display font-bold text-2xl text-espresso mb-2">
+          Piece Not Found in Archive
         </h2>
-        <p className="text-sm font-medium text-espresso/70 mb-6">
-          This piece might have sold out or the link has changed.
+        <p className="text-xs font-normal text-espresso/60 mb-6">
+          This piece may have sold out or the URL has changed.
         </p>
         <Link to="/shop" className="retro-btn-primary inline-flex items-center gap-2">
-          <span>BACK TO ATELIER SHOP</span>
+          <span>BACK TO SHOP</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -60,59 +61,63 @@ export default function Product() {
       })
     }
     setAdded(true)
-    setTimeout(() => setAdded(false), 2200)
+    setTimeout(() => setAdded(false), 2000)
+  }
+
+  const handleBuyNow = () => {
+    handleAddToCart()
+    navigate('/cart')
   }
 
   return (
-    <div className="bg-[#FFF1DF] min-h-screen">
-      {/* ── Breadcrumb ────────────────────────────────────── */}
+    <div className="bg-[#FFF1DF] min-h-screen text-espresso">
+      {/* ── 1. Clean Breadcrumb ────────────────────────────────────── */}
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 pt-6 pb-4">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-bold text-espresso/60 flex-wrap">
-          <Link to="/" className="hover:text-espresso">HOME</Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-espresso/50 flex-wrap">
+          <Link to="/" className="hover:text-espresso transition-colors">HOME</Link>
           <span>/</span>
-          <Link to="/shop" className="hover:text-espresso">SHOP</Link>
+          <Link to="/shop" className="hover:text-espresso transition-colors">SHOP</Link>
           <span>/</span>
           <Link
             to={`/collection/${product.collection.toLowerCase()}`}
-            className="hover:text-espresso uppercase"
+            className="hover:text-espresso transition-colors"
           >
             {product.collection}
           </Link>
           <span>/</span>
-          <span className="text-espresso font-black truncate max-w-[200px] sm:max-w-none">
+          <span className="text-espresso font-semibold truncate max-w-[200px] sm:max-w-none">
             {product.name}
           </span>
         </nav>
       </div>
 
-      {/* ── Main Product Detail Section (Section 6: Clean cream/neutral + strong color accents) ── */}
+      {/* ── 2. Product Showcase Layout ─────────────────────────────── */}
       <section className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 pb-16 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* ── Left: Image Gallery (7 cols) ── */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            {/* Main Image Frame with Layered Retro Border */}
-            <div className="retro-card bg-white p-3 sm:p-4 shadow-retro-xl relative overflow-hidden">
-              <div className="relative aspect-[4/5] w-full rounded-2xl border-2 border-espresso overflow-hidden bg-cream-dark">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+          {/* ── Left Column: High-Res Image Gallery (7 cols) ── */}
+          <div className="lg:col-span-7 flex flex-col gap-3.5">
+            {/* Main Stage Image Frame */}
+            <div className="relative bg-white rounded-sm border border-espresso/20 p-2 sm:p-2.5 shadow-sm overflow-hidden">
+              <div className="relative aspect-[4/5] w-full rounded-[2px] overflow-hidden bg-[#F4EDE4]">
                 <img
                   src={product.images[mainImgIdx] || product.images[0]}
                   alt={product.name}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-center transition-all duration-300"
                 />
 
-                {/* Badge Overlay */}
+                {/* Subtle Archival Badge */}
                 {product.badge && (
-                  <div className="absolute top-3 left-3">
-                    <span className="retro-pill bg-butter text-white shadow-retro">
-                      <DoodleStar className="w-3 h-3" />
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-2.5 py-1 rounded-[2px] border border-espresso/20 bg-white/95 text-[10px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs backdrop-blur-xs">
                       {product.badge}
                     </span>
                   </div>
                 )}
 
-                {/* Floating Stamp */}
+                {/* Subtle Atelier Spec Stamp */}
                 <div className="absolute bottom-3 right-3 hidden sm:block">
-                  <div className="px-3 py-1.5 rounded-xl border-2 border-espresso bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase text-espresso shadow-[2px_2px_0px_#241B16]">
-                    240 GSM HEAVYWEIGHT
+                  <div className="px-2.5 py-1 rounded-[2px] border border-espresso/15 bg-white/90 backdrop-blur-xs text-[10px] font-mono uppercase tracking-wider text-espresso">
+                    240 GSM COMBD COTTON
                   </div>
                 </div>
               </div>
@@ -120,15 +125,15 @@ export default function Product() {
 
             {/* Thumbnail Row */}
             {product.images.length > 1 && (
-              <div className="flex gap-3">
+              <div className="flex gap-2.5">
                 {product.images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setMainImgIdx(idx)}
-                    className={`relative aspect-square w-20 sm:w-24 rounded-xl border-2 overflow-hidden transition-all ${
+                    className={`relative aspect-square w-20 sm:w-24 rounded-[2px] border overflow-hidden transition-all ${
                       mainImgIdx === idx
-                        ? 'border-espresso shadow-retro ring-2 ring-coral'
-                        : 'border-espresso/40 opacity-70 hover:opacity-100 hover:border-espresso'
+                        ? 'border-espresso ring-1 ring-espresso shadow-xs'
+                        : 'border-espresso/20 opacity-70 hover:opacity-100 hover:border-espresso/40'
                     }`}
                   >
                     <img src={img} alt="" className="h-full w-full object-cover" />
@@ -138,48 +143,48 @@ export default function Product() {
             )}
           </div>
 
-          {/* ── Right: Product Info & Buy Box (5 cols) ── */}
+          {/* ── Right Column: Retail Buy Box & Specs (5 cols) ── */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="retro-card bg-white p-6 sm:p-8 shadow-retro-lg">
-              {/* Collection & Drop Tag */}
+            <div className="bg-white rounded-sm border border-espresso/20 p-6 sm:p-8 shadow-sm">
+              {/* Collection & Season metadata */}
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-black uppercase tracking-wider text-coral">
+                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
                   {product.collection} COLLECTION
                 </span>
-                <span className="text-[11px] font-bold text-espresso/60 uppercase">
-                  DROP 04 / ARCHIVE
+                <span className="text-[10px] font-mono uppercase text-espresso/50">
+                  DROP 04 • MUMBAI
                 </span>
               </div>
 
-              {/* Title */}
-              <h1 className="font-display font-black text-3xl sm:text-4xl text-espresso mb-3 leading-tight">
+              {/* Product Title */}
+              <h1 className="font-display font-bold text-2xl sm:text-3xl text-espresso mb-3 leading-snug">
                 {product.name}
               </h1>
 
-              {/* Price & Stock info */}
-              <div className="flex items-baseline gap-3 mb-6 pb-4 border-b-2 border-dashed border-espresso/20">
-                <span className="font-display font-black text-2xl sm:text-3xl text-espresso">
+              {/* Price & Availability Row */}
+              <div className="flex items-baseline gap-3 mb-6 pb-4 border-b border-espresso/10">
+                <span className="font-sans font-bold text-2xl sm:text-3xl text-espresso">
                   {formatPrice(product.price)}
                 </span>
-                <span className="text-xs font-bold text-espresso/50 line-through">
+                <span className="text-xs font-normal text-espresso/40 line-through">
                   {formatPrice(Math.round(product.price * 1.35))}
                 </span>
-                <span className="text-[11px] font-black uppercase text-teal px-2 py-0.5 rounded-full border border-teal bg-teal/10">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal px-2 py-0.5 rounded-[2px] border border-teal/30 bg-teal/5">
                   IN STOCK • SHIPS IN 24H
                 </span>
               </div>
 
-              {/* Description */}
-              <p className="font-sans text-sm text-espresso/80 font-medium leading-relaxed mb-6">
+              {/* Product Description */}
+              <p className="font-sans text-xs sm:text-sm text-espresso/75 leading-relaxed font-normal mb-6">
                 {product.description}
               </p>
 
               {/* Color Selector */}
               {product.colors && (
                 <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-xs font-black uppercase tracking-wider text-espresso">
-                      COLOR: <span className="font-normal text-espresso/80">{selectedColor}</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-espresso">
+                      COLOR: <span className="font-normal text-espresso/70">{selectedColor}</span>
                     </span>
                   </div>
                   <div className="flex gap-2">
@@ -187,14 +192,14 @@ export default function Product() {
                       <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 border-espresso text-xs font-bold transition-all ${
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-[2px] border text-xs font-semibold transition-all ${
                           selectedColor === color
-                            ? 'bg-butter shadow-[2px_2px_0px_#241B16]'
-                            : 'bg-white hover:bg-cream-dark shadow-none'
+                            ? 'border-espresso bg-espresso text-cream'
+                            : 'border-espresso/20 bg-white text-espresso hover:border-espresso/40'
                         }`}
                       >
                         <span
-                          className="h-3.5 w-3.5 rounded-full border border-espresso"
+                          className="h-3 w-3 rounded-full border border-espresso/30"
                           style={{ backgroundColor: product.colorHex ? product.colorHex[idx] : '#FFF1DF' }}
                         />
                         <span>{color}</span>
@@ -206,26 +211,26 @@ export default function Product() {
 
               {/* Size Selector */}
               <div className="mb-6">
-                <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-xs font-black uppercase tracking-wider text-espresso">
-                    SIZE (MEN'S BOXY FIT):
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-espresso">
+                    SELECT SIZE (MEN'S BOXY FIT):
                   </span>
                   <button
                     onClick={() => setShowSizeGuide(true)}
-                    className="text-xs font-black text-coral underline hover:text-espresso"
+                    className="text-[11px] font-bold text-coral underline underline-offset-2 hover:text-espresso"
                   >
                     SIZE GUIDE ?
                   </button>
                 </div>
-                <div className="grid grid-cols-6 gap-2">
+                <div className="grid grid-cols-6 gap-1.5 sm:gap-2">
                   {product.sizes.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`py-2 rounded-xl border-2 border-espresso font-bold text-xs uppercase tracking-wider transition-all ${
+                      className={`py-2 rounded-[2px] font-sans font-bold text-xs uppercase tracking-wider transition-all ${
                         selectedSize === size
-                          ? 'bg-coral text-white shadow-[2px_2px_0px_#241B16]'
-                          : 'bg-white text-espresso hover:bg-butter shadow-none'
+                          ? 'border border-espresso bg-espresso text-cream shadow-xs'
+                          : 'border border-espresso/20 bg-white text-espresso hover:border-espresso/50'
                       }`}
                     >
                       {size}
@@ -234,70 +239,80 @@ export default function Product() {
                 </div>
               </div>
 
-              {/* Quantity Stepper & Add to Bag */}
-              <div className="flex items-center gap-3 mb-6">
-                {/* Stepper with Lucide Icons */}
-                <div className="flex items-center rounded-xl border-2 border-espresso bg-white shadow-retro shrink-0">
+              {/* Stepper & Action CTAs */}
+              <div className="flex flex-col gap-2.5 mb-6">
+                <div className="flex items-center gap-2.5">
+                  {/* Quantity Stepper */}
+                  <div className="flex items-center rounded-[2px] border border-espresso/30 bg-white h-11 shrink-0">
+                    <button
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                      className="px-3 h-full flex items-center justify-center text-espresso hover:bg-[#F9F3EA] transition-colors"
+                      aria-label="Decrease quantity"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="px-3 font-sans font-bold text-xs text-espresso">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={() => setQuantity((q) => q + 1)}
+                      className="px-3 h-full flex items-center justify-center text-espresso hover:bg-[#F9F3EA] transition-colors"
+                      aria-label="Increase quantity"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  {/* Primary Add to Bag */}
                   <button
-                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="p-3 font-black text-espresso hover:bg-cream-dark transition-colors"
-                    aria-label="Decrease quantity"
+                    onClick={handleAddToCart}
+                    className={`flex-1 h-11 retro-btn-primary flex items-center justify-center gap-2 ${
+                      added ? '!bg-sage !border-sage !text-espresso' : ''
+                    }`}
                   >
-                    <Minus className="w-3.5 h-3.5" />
+                    {added ? (
+                      <>
+                        <Check className="w-4 h-4 stroke-[2.5]" />
+                        <span>ADDED TO BAG</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>ADD TO BAG</span>
+                        <span>•</span>
+                        <span>{formatPrice(product.price * quantity)}</span>
+                      </>
+                    )}
                   </button>
-                  <span className="px-3 font-display font-black text-sm text-espresso">
-                    {quantity}
-                  </span>
+
+                  {/* Wishlist Button */}
                   <button
-                    onClick={() => setQuantity((q) => q + 1)}
-                    className="p-3 font-black text-espresso hover:bg-cream-dark transition-colors"
-                    aria-label="Increase quantity"
+                    onClick={() => toggle(product.id)}
+                    aria-label="Save to Wishlist"
+                    className={`flex h-11 w-11 items-center justify-center rounded-[2px] border border-espresso/25 transition-all active:scale-95 shrink-0 ${
+                      wished ? 'bg-coral border-coral text-white' : 'bg-white text-espresso hover:border-espresso'
+                    }`}
                   >
-                    <Plus className="w-3.5 h-3.5" />
+                    <Heart
+                      className={`w-4 h-4 ${wished ? 'fill-white text-white' : 'text-espresso'}`}
+                      strokeWidth={1.8}
+                    />
                   </button>
                 </div>
 
-                {/* Primary Add to Bag */}
+                {/* Instant Buy Now Button */}
                 <button
-                  onClick={handleAddToCart}
-                  className={`flex-1 retro-btn-primary flex items-center justify-center gap-2 ${
-                    added ? '!bg-sage text-espresso' : ''
-                  }`}
+                  onClick={handleBuyNow}
+                  className="w-full h-10 rounded-[2px] border border-espresso/30 bg-white text-espresso font-sans font-bold text-xs uppercase tracking-[0.14em] hover:bg-[#F9F3EA] transition-colors"
                 >
-                  {added ? (
-                    <>
-                      <Check className="w-4 h-4 stroke-[3]" />
-                      <span>ADDED TO BAG!</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>ADD TO BAG</span>
-                      <span>•</span>
-                      <span>{formatPrice(product.price * quantity)}</span>
-                    </>
-                  )}
-                </button>
-
-                {/* Wishlist Button with Lucide Heart */}
-                <button
-                  onClick={() => toggle(product.id)}
-                  aria-label="Save to Wishlist"
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl border-2 border-espresso shadow-retro transition-transform active:scale-95 shrink-0 ${
-                    wished ? 'bg-coral text-white' : 'bg-white text-espresso hover:bg-butter'
-                  }`}
-                >
-                  <Heart
-                    className={`w-5 h-5 ${wished ? 'fill-white text-white' : 'text-espresso'}`}
-                    strokeWidth={2.5}
-                  />
+                  BUY NOW WITH 1-CLICK
                 </button>
               </div>
 
               {/* Guarantees Box */}
-              <div className="p-3.5 rounded-xl border-2 border-dashed border-espresso/30 bg-[#FFF1DF] flex flex-col gap-2 text-xs font-bold text-espresso/80">
+              <div className="p-3.5 rounded-[2px] border border-espresso/15 bg-[#FFF1DF]/60 flex flex-col gap-2 text-xs text-espresso/80">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-coral shrink-0" />
-                  <span>Free express shipping on orders over ₹1,999</span>
+                  <span>Free express shipping nationwide on orders over ₹1,999</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-teal shrink-0" />
@@ -305,20 +320,20 @@ export default function Product() {
                 </div>
                 <div className="flex items-center gap-2">
                   <DoodleStar className="w-3.5 h-3.5 text-burnt-orange shrink-0" />
-                  <span>100% Pre-shrunk cotton with no color bleeding</span>
+                  <span>100% Pre-shrunk 240 GSM combed cotton with zero bleed</span>
                 </div>
               </div>
             </div>
 
             {/* ── Accordion Specifications ── */}
-            <div className="retro-card bg-white p-4 shadow-retro">
+            <div className="bg-white rounded-sm border border-espresso/20 p-4 shadow-sm">
               {/* Accordion 1: Fabric & Care */}
-              <div className="border-b-2 border-espresso/15 pb-3">
+              <div className="border-b border-espresso/10 pb-3">
                 <button
                   onClick={() =>
                     setOpenAccordion(openAccordion === 'fabric' ? '' : 'fabric')
                   }
-                  className="w-full flex items-center justify-between text-left py-2 font-display font-bold text-sm text-espresso"
+                  className="w-full flex items-center justify-between text-left py-1.5 font-display font-bold text-xs sm:text-sm text-espresso uppercase tracking-wider"
                 >
                   <span>FABRIC & CRAFT SPECIFICATIONS</span>
                   <ChevronDown
@@ -328,22 +343,22 @@ export default function Product() {
                   />
                 </button>
                 {openAccordion === 'fabric' && (
-                  <div className="pt-2 text-xs text-espresso/80 font-medium space-y-1.5 leading-relaxed">
-                    <p>• 240 GSM 100% Combed Organic Cotton.</p>
+                  <div className="pt-2 text-xs text-espresso/70 space-y-1.5 leading-relaxed font-normal">
+                    <p>• 240 GSM 100% Combed Long-Staple Organic Cotton.</p>
                     <p>• Enzyme stone-washed for authentic vintage hand-feel.</p>
-                    <p>• 1.25" heavy ribbed crewneck collar that never sags.</p>
+                    <p>• 1.25" heavy reinforced ribbed collar that never sags.</p>
                     <p>• Machine wash cold inside out, hang dry in shade.</p>
                   </div>
                 )}
               </div>
 
               {/* Accordion 2: Sizing & Fit */}
-              <div className="border-b-2 border-espresso/15 py-3">
+              <div className="border-b border-espresso/10 py-3">
                 <button
                   onClick={() =>
                     setOpenAccordion(openAccordion === 'fit' ? '' : 'fit')
                   }
-                  className="w-full flex items-center justify-between text-left py-2 font-display font-bold text-sm text-espresso"
+                  className="w-full flex items-center justify-between text-left py-1.5 font-display font-bold text-xs sm:text-sm text-espresso uppercase tracking-wider"
                 >
                   <span>FIT & SILHOUETTE GUIDE</span>
                   <ChevronDown
@@ -353,10 +368,10 @@ export default function Product() {
                   />
                 </button>
                 {openAccordion === 'fit' && (
-                  <div className="pt-2 text-xs text-espresso/80 font-medium space-y-1.5 leading-relaxed">
+                  <div className="pt-2 text-xs text-espresso/70 space-y-1.5 leading-relaxed font-normal">
                     <p>• Cut: Boxy oversized with dropped shoulder seams.</p>
-                    <p>• True to streetwear size — stick to your regular size for intended drape.</p>
-                    <p>• Model is 6'1" wearing size L.</p>
+                    <p>• True to streetwear size — stick to regular size for intended drape.</p>
+                    <p>• Male model is 6'1" wearing size L.</p>
                   </div>
                 )}
               </div>
@@ -367,7 +382,7 @@ export default function Product() {
                   onClick={() =>
                     setOpenAccordion(openAccordion === 'shipping' ? '' : 'shipping')
                   }
-                  className="w-full flex items-center justify-between text-left py-2 font-display font-bold text-sm text-espresso"
+                  className="w-full flex items-center justify-between text-left py-1.5 font-display font-bold text-xs sm:text-sm text-espresso uppercase tracking-wider"
                 >
                   <span>SHIPPING & RETURNS</span>
                   <ChevronDown
@@ -377,10 +392,10 @@ export default function Product() {
                   />
                 </button>
                 {openAccordion === 'shipping' && (
-                  <div className="pt-2 text-xs text-espresso/80 font-medium space-y-1.5 leading-relaxed">
-                    <p>• Dispatched within 24–48 hours from Mumbai Atelier.</p>
+                  <div className="pt-2 text-xs text-espresso/70 space-y-1.5 leading-relaxed font-normal">
+                    <p>• Dispatched within 24 hours from Mumbai Atelier.</p>
                     <p>• Delivered in 3–5 business days nationwide via BlueDart/Delhivery.</p>
-                    <p>• 15-day exchanges for size swaps at zero extra cost.</p>
+                    <p>• 15-day complimentary exchanges for size swaps.</p>
                   </div>
                 )}
               </div>
@@ -389,25 +404,25 @@ export default function Product() {
         </div>
       </section>
 
-      {/* ── Related Products ──────────────────────────────── */}
+      {/* ── 3. Related Pieces ──────────────────────────────── */}
       {related.length > 0 && (
-        <section className="border-t-3 border-espresso bg-[#FDF6EE] py-14 sm:py-20">
+        <section className="border-t border-espresso/15 bg-[#F9F3EA] py-14 sm:py-20">
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-8 pb-3 border-b border-espresso/10">
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-coral">
+                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
                   MORE FROM {product.collection}
                 </span>
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-espresso">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-espresso">
                   You Might Also Like
                 </h3>
               </div>
-              <Link to="/shop" className="retro-btn-outline text-xs flex items-center gap-1.5">
+              <Link to="/shop" className="text-xs font-bold uppercase tracking-wider text-espresso hover:text-coral flex items-center gap-1">
                 <span>VIEW ALL</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {related.map((item, idx) => (
                 <ProductCard key={item.id} product={item} index={idx} />
               ))}
@@ -416,7 +431,7 @@ export default function Product() {
         </section>
       )}
 
-      {/* ── Size Guide Modal ──────────────────────────────── */}
+      {/* ── 4. Size Guide Modal ──────────────────────────────── */}
       <AnimatePresence>
         {showSizeGuide && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -424,37 +439,37 @@ export default function Product() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-espresso/50 backdrop-blur-xs"
+              className="absolute inset-0 bg-espresso/60 backdrop-blur-xs"
               onClick={() => setShowSizeGuide(false)}
             />
             <motion.div
-              initial={{ scale: 0.95, y: 15 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 15 }}
-              className="relative z-10 w-full max-w-lg rounded-3xl border-3 border-espresso bg-white p-6 sm:p-8 shadow-retro-xl"
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              className="relative z-10 w-full max-w-lg rounded-sm border border-espresso/25 bg-white p-6 sm:p-8 shadow-xl"
             >
-              <div className="flex items-center justify-between pb-4 mb-4 border-b-2 border-espresso">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-espresso/15">
                 <div>
-                  <h3 className="font-display font-black text-xl text-espresso">
-                    MEN'S STREETWEAR SIZING CHART (INCHES)
+                  <h3 className="font-display font-bold text-base sm:text-lg text-espresso uppercase tracking-wider">
+                    MEN'S SIZING CHART (INCHES)
                   </h3>
-                  <span className="text-xs font-bold text-espresso/60">
+                  <span className="text-xs text-espresso/60 font-normal">
                     Measurements taken flat across garment
                   </span>
                 </div>
                 <button
                   onClick={() => setShowSizeGuide(false)}
-                  className="h-8 w-8 rounded-lg border-2 border-espresso bg-butter font-black text-sm flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
+                  className="h-7 w-7 rounded-[2px] border border-espresso/20 text-espresso flex items-center justify-center hover:bg-espresso hover:text-white transition-colors"
                   aria-label="Close size guide"
                 >
-                  <X className="w-4 h-4 stroke-[2.5]" />
+                  <X className="w-4 h-4 stroke-[2]" />
                 </button>
               </div>
 
               <div className="overflow-x-auto mb-6">
-                <table className="w-full text-left text-xs font-bold text-espresso border-collapse">
+                <table className="w-full text-left text-xs text-espresso border-collapse">
                   <thead>
-                    <tr className="bg-cream-dark border-b-2 border-espresso">
+                    <tr className="bg-[#F9F3EA] border-b border-espresso/15 text-[11px] font-bold uppercase tracking-wider">
                       <th className="p-2.5">SIZE</th>
                       <th className="p-2.5">CHEST</th>
                       <th className="p-2.5">LENGTH</th>
@@ -472,14 +487,14 @@ export default function Product() {
                     ].map((row, i) => (
                       <tr
                         key={row.size}
-                        className={`border-b border-espresso/15 ${
-                          i % 2 === 0 ? 'bg-white' : 'bg-cream-card'
+                        className={`border-b border-espresso/10 ${
+                          i % 2 === 0 ? 'bg-white' : 'bg-[#FAF6EE]'
                         }`}
                       >
-                        <td className="p-2.5 font-black text-coral">{row.size}</td>
-                        <td className="p-2.5">{row.chest}</td>
-                        <td className="p-2.5">{row.length}</td>
-                        <td className="p-2.5">{row.shoulder}</td>
+                        <td className="p-2.5 font-bold text-coral">{row.size}</td>
+                        <td className="p-2.5 font-medium">{row.chest}</td>
+                        <td className="p-2.5 font-medium">{row.length}</td>
+                        <td className="p-2.5 font-medium">{row.shoulder}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -488,9 +503,9 @@ export default function Product() {
 
               <button
                 onClick={() => setShowSizeGuide(false)}
-                className="w-full retro-btn-secondary py-2.5"
+                className="w-full retro-btn-primary py-2.5"
               >
-                GOT IT, CLOSE GUIDE
+                CLOSE GUIDE
               </button>
             </motion.div>
           </div>

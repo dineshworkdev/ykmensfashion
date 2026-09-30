@@ -1,32 +1,32 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Package, Sparkles } from 'lucide-react'
+import { ArrowRight, Package } from 'lucide-react'
 import ProductCard from '../components/product/ProductCard.jsx'
 import { getProductsByCollection, collectionsData } from '../data/products.js'
-import { DoodleStar, WavyUnderline, RetroStampBadge } from '../components/common/Doodles.jsx'
+import { DoodleStar, AnimatedWavyUnderline } from '../components/common/Doodles.jsx'
 
 // Color atmosphere for each collection campaign hero
 const collectionThemes = {
   oversized: {
-    heroBg: 'bg-[#C96845]',
+    heroBg: 'bg-[#BA664F]',
     heroText: 'text-white',
-    accentText: 'text-butter',
-    badgeBg: 'bg-butter text-espresso',
-    subText: 'text-white/85',
+    accentText: 'text-[#FFF1DF]',
+    badgeBg: 'bg-white text-espresso',
+    subText: 'text-white/80',
   },
   graphic: {
-    heroBg: 'bg-[#754447]',
+    heroBg: 'bg-[#6E3D41]',
     heroText: 'text-white',
-    accentText: 'text-butter',
-    badgeBg: 'bg-coral text-white',
-    subText: 'text-white/85',
+    accentText: 'text-[#FFF1DF]',
+    badgeBg: 'bg-white text-espresso',
+    subText: 'text-white/80',
   },
   essentials: {
-    heroBg: 'bg-[#183D35]',
+    heroBg: 'bg-[#14382F]',
     heroText: 'text-white',
     accentText: 'text-coral',
-    badgeBg: 'bg-teal text-white',
-    subText: 'text-white/85',
+    badgeBg: 'bg-white text-espresso',
+    subText: 'text-white/80',
   },
 }
 
@@ -38,13 +38,13 @@ export default function Collection() {
 
   if (!colData) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center bg-[#FFF1DF]">
-        <Package className="w-16 h-16 text-espresso/40 mb-4" />
-        <h2 className="font-display font-black text-3xl text-espresso mb-2">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center bg-[#FFF1DF] text-espresso">
+        <Package className="w-12 h-12 text-espresso/30 mb-4" />
+        <h2 className="font-display font-bold text-2xl text-espresso mb-2">
           Collection Not Found
         </h2>
-        <p className="text-sm font-medium text-espresso/70 mb-6">
-          This series might be archived or under development.
+        <p className="text-xs font-normal text-espresso/60 mb-6">
+          This series may have ended or the link has changed.
         </p>
         <Link to="/shop" className="retro-btn-primary flex items-center gap-2">
           <span>EXPLORE ALL COLLECTIONS</span>
@@ -57,62 +57,60 @@ export default function Collection() {
   const theme = collectionThemes[slug?.toLowerCase()] || collectionThemes.oversized
 
   return (
-    <div className="bg-[#FFF1DF] min-h-screen">
-      {/* ── 1. Strong Colored Campaign Hero (Section 6 Requirement) ────────────────────────── */}
-      <section className={`border-b-3 border-espresso ${theme.heroBg} ${theme.heroText} py-14 sm:py-20 relative overflow-hidden`}>
+    <div className="bg-[#FFF1DF] min-h-screen text-espresso">
+      {/* ── 1. Refined Campaign Hero ────────────────────────── */}
+      <section className={`border-b border-espresso/15 ${theme.heroBg} ${theme.heroText} py-14 sm:py-20 relative overflow-hidden`}>
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             {/* Left text & metadata */}
             <div className="lg:col-span-7 flex flex-col items-start">
               {/* Badge */}
-              <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-espresso ${theme.badgeBg} shadow-[2px_2px_0px_#241B16] mb-4`}>
-                <DoodleStar className="w-3.5 h-3.5" />
-                <span className="text-xs font-black uppercase tracking-wider">
-                  {colData.badge || 'ATELIER SERIES'}
-                </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-white/20 bg-white/10 text-white text-[10px] font-bold uppercase tracking-[0.18em] mb-4">
+                <DoodleStar className="w-3 h-3 text-coral" />
+                <span>{colData.badge || 'ATELIER SERIES'}</span>
               </div>
 
               {/* Title */}
-              <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl mb-4 leading-[1.05]">
+              <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl mb-3 leading-tight tracking-tight">
                 {colData.name}{' '}
-                <span className={`relative inline-block ${theme.accentText}`}>
-                  SERIES.
-                  <WavyUnderline className="absolute -bottom-2 left-0 w-full h-3 text-white" />
+                <span className="font-serif italic font-normal text-coral relative inline-block">
+                  Series.
+                  <AnimatedWavyUnderline className="absolute -bottom-1 left-0 w-full h-2 text-coral" />
                 </span>
               </h1>
 
               {/* Tagline & description */}
-              <p className={`font-hand text-2xl sm:text-3xl ${theme.accentText} mb-3`}>
+              <p className="font-sans text-sm sm:text-base text-white/90 font-medium mb-3">
                 "{colData.tagline}"
               </p>
-              <p className={`font-sans text-base sm:text-lg ${theme.subText} font-medium max-w-lg mb-8 leading-relaxed`}>
+              <p className={`font-sans text-xs sm:text-sm ${theme.subText} font-normal max-w-lg mb-6 leading-relaxed`}>
                 {colData.description}
               </p>
 
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="retro-pill bg-white text-espresso">
-                  {colProducts.length} PIECES IN DROP
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                  {colProducts.length} PIECES AVAILABLE
                 </span>
-                <span className="retro-pill bg-white text-espresso">
-                  240 GSM HEAVYWEIGHT
+                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                  240 GSM COMBD COTTON
                 </span>
-                <span className="retro-pill bg-white text-espresso">
-                  100% ORGANIC COTTON
+                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                  100% ORGANIC
                 </span>
               </div>
             </div>
 
             {/* Right Campaign Poster */}
             <div className="lg:col-span-5 relative">
-              <div className="retro-card bg-white p-3 shadow-retro-xl rotate-[1.5deg]">
-                <div className="relative aspect-[4/3] rounded-2xl border-2 border-espresso overflow-hidden bg-cream-dark">
+              <div className="bg-white p-2.5 sm:p-3 rounded-sm border border-white/20 shadow-lg">
+                <div className="relative aspect-[4/3] rounded-[2px] overflow-hidden bg-[#F4EDE4]">
                   <img
                     src={colData.image}
                     alt={colData.name}
                     className="h-full w-full object-cover"
                   />
-                  <div className="absolute top-3 right-3">
-                    <RetroStampBadge className="w-16 h-16 bg-white/95 rounded-full border-2 border-espresso shadow-retro" />
+                  <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-[2px] bg-white/95 border border-espresso/15 text-[9px] font-mono uppercase tracking-wider text-espresso">
+                    STUDIO CUT
                   </div>
                 </div>
               </div>
@@ -123,25 +121,25 @@ export default function Collection() {
 
       {/* ── 2. Product Grid ─────────────────────────────────── */}
       <section className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
-        <div className="flex items-center justify-between mb-8 pb-3 border-b-2 border-dashed border-espresso/20">
-          <span className="font-display font-black text-xl text-espresso uppercase">
-            {colData.name} CATALOGUE ({colProducts.length})
+        <div className="flex items-center justify-between mb-8 pb-3 border-b border-espresso/10">
+          <span className="text-xs font-bold uppercase tracking-[0.14em] text-espresso/70">
+            {colData.name} ARCHIVE ({colProducts.length} PIECES)
           </span>
           <Link
             to="/shop"
-            className="text-xs font-black uppercase tracking-wider text-coral hover:underline flex items-center gap-1.5"
+            className="text-xs font-bold uppercase tracking-wider text-espresso hover:text-coral flex items-center gap-1.5 transition-colors"
           >
-            <span>VIEW ALL SILHOUETTES</span>
+            <span>ALL SILHOUETTES</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {colProducts.length === 0 ? (
-          <div className="py-20 text-center rounded-3xl border-3 border-espresso bg-white p-8 shadow-retro-lg">
-            <h3 className="font-display font-black text-2xl text-espresso mb-2">
-              All items in {colData.name} currently sold out.
+          <div className="py-16 text-center rounded-sm border border-espresso/15 bg-white p-8 max-w-md mx-auto">
+            <h3 className="font-display font-bold text-xl text-espresso mb-2">
+              All items in {colData.name} sold out
             </h3>
-            <p className="text-sm font-medium text-espresso/60 mb-6">
+            <p className="text-xs font-normal text-espresso/60 mb-6">
               Check out our other seasonal drops below.
             </p>
             <Link to="/shop" className="retro-btn-primary">
@@ -149,7 +147,7 @@ export default function Collection() {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {colProducts.map((product, idx) => (
               <ProductCard key={product.id} product={product} index={idx} />
             ))}
@@ -157,15 +155,15 @@ export default function Collection() {
         )}
       </section>
 
-      {/* ── 3. Other Collections Navigation Strip (Butter) ─────────────── */}
-      <section className="border-t-3 border-espresso bg-butter py-14 sm:py-20">
+      {/* ── 3. Other Collections Navigation Strip ───────────── */}
+      <section className="border-t border-espresso/15 bg-[#F9F3EA] py-14 sm:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-[10px] font-black uppercase tracking-widest text-espresso/70">
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-coral block mb-1">
               DISCOVER MORE
             </span>
-            <h3 className="font-display font-black text-2xl sm:text-3xl text-espresso">
-              EXPLORE OTHER SERIES
+            <h3 className="font-display font-bold text-xl sm:text-3xl text-espresso">
+              EXPLORE OTHER SILHOUETTES
             </h3>
           </div>
 
@@ -174,21 +172,21 @@ export default function Collection() {
               <Link
                 key={other.slug}
                 to={`/collection/${other.slug}`}
-                className="retro-card bg-white p-5 flex items-center justify-between group hover:-translate-y-1 transition-all shadow-retro"
+                className="bg-white rounded-sm border border-espresso/15 hover:border-espresso/35 p-5 flex items-center justify-between group shadow-xs hover:shadow-md transition-all duration-300"
               >
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-wider text-coral block mb-1">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-coral block mb-1">
                     {other.badge}
                   </span>
-                  <h4 className="font-display font-black text-2xl text-espresso group-hover:text-coral transition-colors">
+                  <h4 className="font-display font-bold text-lg text-espresso group-hover:text-coral transition-colors">
                     {other.name}
                   </h4>
-                  <p className="text-xs text-espresso/70 mt-1 font-medium">
+                  <p className="text-xs text-espresso/60 mt-0.5 font-normal">
                     {other.tagline}
                   </p>
                 </div>
-                <div className="h-10 w-10 rounded-full border-2 border-espresso bg-butter flex items-center justify-center font-black group-hover:bg-coral group-hover:text-white transition-colors shrink-0 shadow-[2px_2px_0px_#241B16]">
-                  <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+                <div className="h-9 w-9 rounded-full border border-espresso/20 flex items-center justify-center group-hover:bg-espresso group-hover:text-white transition-colors shrink-0">
+                  <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>
             ))}
