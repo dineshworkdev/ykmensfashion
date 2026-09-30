@@ -110,7 +110,7 @@ export default function Home() {
               <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none rounded-2xl sm:rounded-3xl border-2 sm:border-3 border-espresso bg-white p-2.5 sm:p-3.5 shadow-retro z-10">
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl sm:rounded-2xl border-2 border-espresso bg-[#F7EFE5]">
                   <img
-                    src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1000&auto=format&fit=crop&q=85"
+                    src="https://plus.unsplash.com/premium_photo-1727942419945-1908baae3c8e?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Male model wearing YK Mens Fashion heavyweight oversized streetwear tee"
                     className="h-full w-full object-cover object-center"
                     loading="eager"
@@ -376,7 +376,7 @@ export default function Home() {
               {
                 look: 'LOOK 03',
                 title: 'Palette Contrast',
-                src: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
+                src: 'https://plus.unsplash.com/premium_photo-1727942419945-1908baae3c8e?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               },
             ].map((item, i) => (
               <div
