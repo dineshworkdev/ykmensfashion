@@ -19,7 +19,7 @@ const values = [
   {
     title: 'Numbered Small Batches',
     icon: Sparkles,
-    badge: 'ARCHIVAL DROPS',
+    badge: 'LIMITED RUNS',
     body: 'Drops are limited to 150–250 pieces per run worldwide. When an edition sells out, it enters the permanent archive. Zero landfill burning, zero clearance dumping.',
   },
 ]

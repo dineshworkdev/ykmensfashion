@@ -6,11 +6,11 @@ import { useWishlist } from '../../context/WishlistContext.jsx'
 import MobileMenu from './MobileMenu.jsx'
 
 export const navLinks = [
-  { to: '/shop', label: 'SHOP ALL' },
-  { to: '/shop?filter=new', label: 'NEW DROPS' },
+  { to: '/shop', label: 'SHOP' },
+  { to: '/shop?filter=new', label: 'NEW ARRIVALS' },
   { to: '/collection/oversized', label: 'COLLECTIONS' },
-  { to: '/lookbook', label: 'LOOKBOOK' },
-  { to: '/about', label: 'ATELIER' },
+  { to: '/lookbook', label: 'STYLE' },
+  { to: '/about', label: 'ABOUT' },
 ]
 
 export default function Navbar() {
@@ -58,7 +58,7 @@ export default function Navbar() {
                 YK MENS FASHION
               </span>
               <span className="text-[9px] uppercase tracking-[0.2em] font-semibold text-espresso/60 hidden sm:block">
-                STREETWEAR ATELIER
+                MEN'S T-SHIRTS
               </span>
             </div>
           </Link>

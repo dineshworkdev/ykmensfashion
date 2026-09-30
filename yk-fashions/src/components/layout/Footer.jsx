@@ -22,9 +22,9 @@ function InstagramIcon({ className = 'w-4 h-4' }) {
 
 const footerLinks = [
   {
-    heading: 'SHOP ARCHIVE',
+    heading: 'SHOP',
     links: [
-      { to: '/shop', label: "All Men's Pieces" },
+      { to: '/shop', label: 'All T-Shirts' },
       { to: '/shop?filter=new', label: 'New Arrivals' },
       { to: '/collection/oversized', label: 'Oversized Series' },
       { to: '/collection/graphic', label: 'Graphic Editions' },
@@ -32,11 +32,11 @@ const footerLinks = [
     ],
   },
   {
-    heading: 'EDITORIAL',
+    heading: 'EXPLORE',
     links: [
-      { to: '/lookbook', label: 'Lookbook 04' },
-      { to: '/about', label: 'Atelier Story' },
-      { to: '/search', label: 'Search Catalogue' },
+      { to: '/lookbook', label: 'Style Inspiration' },
+      { to: '/about', label: 'About Us' },
+      { to: '/search', label: 'Search' },
     ],
   },
   {
@@ -83,9 +83,8 @@ export default function Footer() {
             </div>
 
             <p className="font-sans text-xs sm:text-sm text-[#FFF1DF]/75 font-normal max-w-sm mb-6 leading-relaxed">
-              Independent retro men's streetwear atelier. We create high-density
-              240 GSM organic combed cotton t-shirts that fuse artistic printmaking with modern
-              relaxed boxy cuts.
+              Independent retro men's fashion brand. We create high-density
+              240 GSM organic combed cotton t-shirts — boxy cuts with personality.
             </p>
 
             {/* Atelier Hallmark Stamp */}
@@ -128,7 +127,7 @@ export default function Footer() {
           {/* Social Links & Atelier Hours (3 cols) */}
           <div className="lg:col-span-3">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-coral mb-3">
-              ATELIER DESK
+              CONNECT
             </p>
             <div className="flex flex-col gap-2 mb-4">
               {socialLinks.map((social) => {
@@ -158,7 +157,7 @@ export default function Footer() {
               <Clock className="w-4 h-4 text-coral shrink-0 mt-0.5" />
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-white block mb-0.5">
-                  ATELIER HOURS
+                  STORE HOURS
                 </span>
                 <span className="text-xs text-[#FFF1DF]/70">
                   Mon – Sat: 10:00 AM – 7:30 PM IST
@@ -173,7 +172,7 @@ export default function Footer() {
       <div className="border-t border-white/10 bg-[#0E2620] py-4 px-4 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1440px] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="text-[11px] text-[#FFF1DF]/60 font-medium">
-            © {new Date().getFullYear()} YK MENS FASHION ATELIER. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} YK MENS FASHION. ALL RIGHTS RESERVED.
           </p>
 
           <div className="flex items-center gap-4 text-[11px] text-[#FFF1DF]/60">

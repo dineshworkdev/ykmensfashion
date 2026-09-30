@@ -31,7 +31,7 @@ export default function Product() {
       <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center bg-[#FFF1DF]">
         <Search className="w-12 h-12 text-espresso/30 mb-4" />
         <h2 className="font-display font-bold text-2xl text-espresso mb-2">
-          Piece Not Found in Archive
+          Product Not Found
         </h2>
         <p className="text-xs font-normal text-espresso/60 mb-6">
           This piece may have sold out or the URL has changed.
@@ -393,7 +393,7 @@ export default function Product() {
                 </button>
                 {openAccordion === 'shipping' && (
                   <div className="pt-2 text-xs text-espresso/70 space-y-1.5 leading-relaxed font-normal">
-                    <p>• Dispatched within 24 hours from Mumbai Atelier.</p>
+                    <p>• Dispatched within 24 hours from Mumbai.</p>
                     <p>• Delivered in 3–5 business days nationwide via BlueDart/Delhivery.</p>
                     <p>• 15-day complimentary exchanges for size swaps.</p>
                   </div>

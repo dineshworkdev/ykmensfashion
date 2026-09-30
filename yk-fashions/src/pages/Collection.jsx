@@ -89,7 +89,7 @@ export default function Collection() {
 
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
-                  {colProducts.length} PIECES AVAILABLE
+                  {colProducts.length} T-SHIRTS AVAILABLE
                 </span>
                 <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
                   240 GSM COMBD COTTON
@@ -123,7 +123,7 @@ export default function Collection() {
       <section className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
         <div className="flex items-center justify-between mb-8 pb-3 border-b border-espresso/10">
           <span className="text-xs font-bold uppercase tracking-[0.14em] text-espresso/70">
-            {colData.name} ARCHIVE ({colProducts.length} PIECES)
+            {colData.name} ({colProducts.length} T-SHIRTS)
           </span>
           <Link
             to="/shop"
@@ -143,7 +143,7 @@ export default function Collection() {
               Check out our other seasonal drops below.
             </p>
             <Link to="/shop" className="retro-btn-primary">
-              EXPLORE ALL PIECES
+              VIEW ALL T-SHIRTS
             </Link>
           </div>
         ) : (

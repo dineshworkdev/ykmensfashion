@@ -37,19 +37,19 @@ export default function Search() {
         <div className="max-w-3xl mx-auto text-center mb-10">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.16em] text-espresso mb-3 shadow-xs">
             <DoodleStar className="w-3 h-3 text-coral" />
-            CATALOGUE ARCHIVE SEARCH
+            SEARCH T-SHIRTS
           </div>
 
           <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-espresso mb-3 leading-tight tracking-tight">
             SEARCH{' '}
             <span className="font-serif italic font-normal text-coral relative inline-block">
-              Archive.
+              T-Shirts.
               <AnimatedWavyUnderline className="absolute -bottom-1 left-0 w-full h-2 text-coral" />
             </span>
           </h1>
 
           <p className="font-sans text-xs sm:text-sm text-espresso/70 mb-8 max-w-md mx-auto font-normal">
-            Look up heavyweight men's t-shirts by silhouette, edition, graphic print, or dye tone.
+            Look up men's t-shirts by style, color, or name.
           </p>
 
           {/* ── Architectural Search Input ── */}
@@ -62,7 +62,7 @@ export default function Search() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by silhouette, style, or color (e.g. Oversized, Acid)..."
+                placeholder="Search by style, color, or name (e.g. Oversized, Acid Wash)..."
                 autoFocus
                 className="w-full bg-transparent px-2 py-1.5 font-sans text-sm sm:text-base text-espresso placeholder-espresso/40 focus:outline-none"
               />

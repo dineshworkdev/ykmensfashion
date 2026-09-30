@@ -93,7 +93,7 @@ export default function Checkout() {
             </div>
 
             <Link to="/shop" className="retro-btn-primary inline-flex items-center gap-2">
-              <span>EXPLORE MORE PIECES</span>
+              <span>SHOP MORE T-SHIRTS</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

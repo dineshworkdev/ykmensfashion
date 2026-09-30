@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Search, X, Shirt, SlidersHorizontal, ArrowUpDown } from 'lucide-react'
+import { Search, X, Shirt, ArrowUpDown } from 'lucide-react'
 import ProductCard from '../components/product/ProductCard.jsx'
 import { products } from '../data/products.js'
 import { DoodleStar, AnimatedWavyUnderline } from '../components/common/Doodles.jsx'
@@ -76,24 +76,24 @@ export default function Shop() {
 
   return (
     <div className="bg-[#FFF1DF] min-h-screen text-espresso">
-      {/* ── 1. Editorial Header ───────────────────────────── */}
-      <section className="border-b border-espresso/15 bg-[#FFF1DF] py-12 sm:py-16">
+      {/* ── 1. High-Contrast Editorial Header (Dark Charcoal: #161311) ── */}
+      <section className="border-b border-espresso/20 bg-[#161311] text-white py-12 sm:py-16">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.18em] text-espresso mb-3 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-white/20 bg-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFF1DF] mb-3">
               <DoodleStar className="w-3 h-3 text-coral" />
-              MEN'S CATALOGUE ARCHIVE
+              COMPLETE COLLECTION
             </div>
-            <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-espresso mb-3 tracking-tight">
+            <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white mb-3 tracking-tight">
               ALL MEN'S{' '}
               <span className="font-serif italic font-normal text-coral relative inline-block">
-                Pieces.
+                Streetwear.
                 <AnimatedWavyUnderline className="absolute -bottom-1 left-0 w-full h-2 text-coral" />
               </span>
             </h1>
-            <p className="font-sans text-xs sm:text-sm text-espresso/70 font-normal leading-relaxed">
-              Explore our complete collection of 240 GSM organic cotton t-shirts, silk-screened
-              limited editions, and daily heavy blanks.
+            <p className="font-sans text-xs sm:text-sm text-white/75 font-normal leading-relaxed">
+              Explore our complete collection of 240 GSM organic cotton t-shirts, hand-pulled silkscreen
+              editions, and daily heavyweight blanks.
             </p>
           </div>
         </div>
@@ -126,13 +126,13 @@ export default function Shop() {
 
           {/* Right Controls: Search & Sort Dropdown */}
           <div className="flex items-center gap-2.5 self-end md:self-auto w-full md:w-auto">
-            {/* Quick search input with Lucide icon */}
+            {/* Quick search input */}
             <div className="relative flex-1 md:w-60">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search archive..."
+                placeholder="Search collection..."
                 className="w-full pl-8 pr-7 py-1.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso placeholder-espresso/45 focus:outline-none focus:border-espresso"
               />
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-espresso/50" />
@@ -172,13 +172,13 @@ export default function Shop() {
       {/* ── 3. High-Fashion Gallery Grid (Warm Cream Canvas) ────────────────── */}
       <section className="bg-[#FFF1DF] py-10 sm:py-16">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          {/* Subtle Count & Archive Bar */}
+          {/* Count Bar */}
           <div className="flex items-center justify-between mb-8 pb-3 border-b border-espresso/10">
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-espresso/70">
               Showing {filteredProducts.length} pieces in {activeCategory.toLowerCase()}
             </span>
             <span className="text-[10px] font-mono text-espresso/50 uppercase tracking-widest hidden sm:inline">
-              240 GSM ATELIER RUN
+              100% COMBED ORGANIC COTTON
             </span>
           </div>
 
@@ -204,7 +204,7 @@ export default function Shop() {
           ) : (
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {filteredProducts.map((product, idx) => (
-                <ProductCard key={product.id} product={product} index={idx} />
+                <ProductCard key={product.id} product={product} index={idx} dark={false} />
               ))}
             </div>
           )}

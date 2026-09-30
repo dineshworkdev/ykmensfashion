@@ -102,7 +102,7 @@ export default function MobileMenu({ open, onClose }) {
               {/* Collections Sub-menu */}
               <div className="mt-8 pt-6 border-t border-white/10">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-coral mb-3">
-                  MEN'S SILHOUETTES
+                  SHOP BY STYLE
                 </p>
                 <div className="flex flex-col gap-2">
                   <Link
@@ -140,7 +140,7 @@ export default function MobileMenu({ open, onClose }) {
               </Link>
               <span>•</span>
               <Link to="/about" onClick={onClose} className="hover:text-white transition-colors">
-                Atelier Story
+                About
               </Link>
               <span>•</span>
               <span className="text-[10px] font-medium">YK © 2026</span>
