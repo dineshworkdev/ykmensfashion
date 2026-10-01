@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -8,33 +8,42 @@ import { WishlistProvider } from './context/WishlistContext.jsx'
 import './styles/index.css'
 
 // ─── Brand loader ────────────────────────────────────────────────────────────
-// Displays the SVG brand intro animation, perfectly centered on screen.
+// Displays the brand intro animation video for its full duration before transitioning out.
 function Loader({ onDone }) {
+  const videoRef = useRef(null)
+
   useEffect(() => {
-    // SVG animation duration is ~3s; give it 3.1s then transition out
-    const t = setTimeout(onDone, 3100)
-    return () => clearTimeout(t)
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      const playPromise = videoRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn('Autoplay prevented:', err)
+          setTimeout(onDone, 4000)
+        })
+      }
+    }
   }, [onDone])
 
   return (
     <motion.div
-      className="fixed inset-0 z-[999] flex items-center justify-center bg-[#FFF1DF]"
+      className="fixed inset-0 z-[999] flex items-center justify-center bg-[#FFF1DF] overflow-hidden"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* SVG container — responsive, preserves native 4:3 aspect ratio */}
-      <div
-        style={{
-          width: 'min(90vw, 600px)',
-          aspectRatio: '4 / 3',
-        }}
-      >
-        <img
-          src="/videos/yk-animation.svg"
-          alt="YK Mens Fashion"
-          style={{ width: '100%', height: '100%', display: 'block' }}
-        />
-      </div>
+      <video
+        ref={videoRef}
+        src="/videos/animation.mp4"
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        disableRemotePlayback
+        onEnded={onDone}
+        onError={onDone}
+        className="w-full h-full object-contain pointer-events-none"
+      />
     </motion.div>
   )
 }
