@@ -1,4 +1,19 @@
-<svg fill="none" height="100%" width="100%" viewBox="0 0 1600 1200" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" height="100%" width="100%" viewBox="0 0 1600 1200" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><defs>
+  <linearGradient id="goldEmbroidery" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8F6417"/>
+    <stop offset="0.22" stop-color="#F6D77A"/>
+    <stop offset="0.5" stop-color="#C99A32"/>
+    <stop offset="0.78" stop-color="#FFE39A"/>
+    <stop offset="1" stop-color="#8A5D12"/>
+  </linearGradient>
+  <filter id="softEmbroideryShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+    <feOffset dy="3" result="off"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
 <g opacity="0" id="brandText">
   <animate repeatCount="indefinite" attributeName="opacity" dur="3.003s" begin="0s" fill="freeze"
     values="0; 0; 1; 1" keyTimes="0; 0.155556; 0.444444; 1"
@@ -35,5 +50,35 @@
     </g>
   </g>
 </g>
-<g opacity="0" id="i2"><animate repeatCount="indefinite" attributeName="opacity" dur="3.003s" begin="0s" fill="freeze" values="0; 1; 1" keyTimes="0; 0.155556; 1" keySplines="0.22 1 0.36 1; 0 0 1 1" calcMode="spline" /><g transform="translate(800,520)"><g transform="rotate(-8)"><animateTransform repeatCount="indefinite" type="rotate" attributeName="transform" dur="3.003s" begin="0s" calcMode="spline" values="-8; 2; -1; 0; 0" keyTimes="0; 0.288889; 0.511111; 0.711111; 1" keySplines="0.22 1 0.36 1; 0.22 1 0.36 1; 0.22 1 0.36 1; 0 0 1 1" fill="freeze" /><g transform="scale(0.7,0.7)"><animateTransform repeatCount="indefinite" type="scale" attributeName="transform" dur="3.003s" begin="0s" calcMode="spline" values="0.7 0.7; 0.75 0.75; 0.796 0.796; 0.837 0.837; 0.873 0.873; 0.905 0.905; 0.933 0.933; 0.956 0.956; 0.976 0.976; 0.992 0.992; 1.005 1.005; 1.015 1.015; 1.022 1.022; 1.026 1.026; 1.029 1.029; 1.029 1.029; 1.028 1.028; 1.026 1.026; 1.023 1.023; 1.02 1.02; 1.016 1.016; 1.012 1.012; 1.008 1.008; 1.005 1.005; 1.002 1.002; 1.001 1.001; 1 1; 1 1" keyTimes="0; 0.011111; 0.022222; 0.033333; 0.044444; 0.055556; 0.066667; 0.077778; 0.088889; 0.1; 0.111111; 0.122222; 0.133333; 0.144444; 0.155556; 0.166667; 0.177778; 0.188889; 0.2; 0.211111; 0.222222; 0.233333; 0.244444; 0.255555; 0.266667; 0.277778; 0.288889; 1" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1" fill="freeze" /><path d="M-60,-150C-60,-150,-130,-125,-130,-125C-130,-125,-200,-50,-200,-50C-200,-50,-160,0,-160,0C-160,0,-115,-25,-115,-25C-115,-25,-115,150,-115,150C-115,150,115,150,115,150C115,150,115,-25,115,-25C115,-25,160,0,160,0C160,0,200,-50,200,-50C200,-50,130,-125,130,-125C130,-125,60,-150,60,-150C60,-120,30,-105,0,-105C-30,-105,-60,-120,-60,-150C-60,-150,-60,-150,-60,-150Z" fill="#261c18" /></g></g></g></g>
+<g opacity="0" id="i2"><animate repeatCount="indefinite" attributeName="opacity" dur="3.003s" begin="0s" fill="freeze" values="0; 1; 1" keyTimes="0; 0.155556; 1" keySplines="0.22 1 0.36 1; 0 0 1 1" calcMode="spline" /><g transform="translate(800,520)"><g transform="rotate(-8)"><animateTransform repeatCount="indefinite" type="rotate" attributeName="transform" dur="3.003s" begin="0s" calcMode="spline" values="-8; 2; -1; 0; 0" keyTimes="0; 0.288889; 0.511111; 0.711111; 1" keySplines="0.22 1 0.36 1; 0.22 1 0.36 1; 0.22 1 0.36 1; 0 0 1 1" fill="freeze" /><g transform="scale(0.95,0.95)"><animateTransform repeatCount="indefinite" type="scale" attributeName="transform" dur="3.003s" begin="0s" calcMode="spline" values="0.851 0.851; 0.897 0.897; 0.915 0.915; 0.963 0.963; 1.004 1.004; 1.041 1.041; 1.073 1.073; 1.099 1.099; 1.122 1.122; 1.141 1.141; 1.156 1.156; 1.167 1.167; 1.175 1.175; 1.18 1.18; 1.183 1.183; 1.183 1.183; 1.182 1.182; 1.18 1.18; 1.176 1.176; 1.173 1.173; 1.168 1.168; 1.164 1.164; 1.159 1.159; 1.156 1.156; 1.152 1.152; 1.179 1.179; 1.173 1.173; 1.167 1.167; 1.161 1.161; 1.156 1.156; 1.15 1.15; 1.15 1.15" keyTimes="0; 0.011111; 0.022222; 0.033333; 0.044444; 0.055556; 0.066667; 0.077778; 0.088889; 0.1; 0.111111; 0.122222; 0.133333; 0.144444; 0.155556; 0.166667; 0.177778; 0.188889; 0.2; 0.211111; 0.222222; 0.233333; 0.244444; 0.255555; 0.266667; 0.277778; 0.288889; 1" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1; 0 0 1 1" fill="freeze" /><!-- Realistic physical shirt hanger, tucked naturally inside the neckline -->
+<g id="physicalHanger" opacity="0.98">
+  <path d="M-6,-177 C-6,-194 8,-208 8,-220 C8,-231 -1,-239 -11,-235 C-19,-232 -22,-222 -18,-214"
+        fill="none" stroke="#B5B0A8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-7,-171 L-145,-122 C-158,-117 -169,-107 -177,-95 L-185,-83
+           C-189,-77 -185,-69 -177,-69 L-148,-69 L-35,-101
+           L-8,-109 L35,-101 L148,-69 L177,-69 C185,-69 189,-77 185,-83
+           L177,-95 C169,-107 158,-117 145,-122 Z"
+        fill="#9C9891"/>
+  <path d="M-144,-111 L-31,-143 L0,-132 L31,-143 L144,-111"
+        fill="none" stroke="#D6D1C8" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
+  <path d="M-148,-69 L-35,-101 L-8,-109 L35,-101 L148,-69"
+        fill="none" stroke="#68645F" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+</g>
+
+<!-- T-shirt -->
+<path d="M-60,-150C-60,-150,-130,-125,-130,-125C-130,-125,-200,-50,-200,-50C-200,-50,-160,0,-160,0C-160,0,-115,-25,-115,-25C-115,-25,-115,150,-115,150C-115,150,115,150,115,150C115,150,115,-25,115,-25C115,-25,160,0,160,0C160,0,200,-50,200,-50C200,-50,130,-125,130,-125C130,-125,60,-150,60,-150C60,-120,30,-105,0,-105C-30,-105,-60,-120,-60,-150C-60,-150,-60,-150,-60,-150Z" fill="#261c18" />
+
+<!-- Premium embroidered YK: metallic gold thread appearance, integrated into fabric -->
+<g id="embroideredYK" transform="translate(0,-12)" filter="url(#softEmbroideryShadow)">
+  <text x="0" y="18" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="72" font-weight="900" letter-spacing="-5"
+        fill="url(#goldEmbroidery)" stroke="#7B5414" stroke-width="1.5"
+        paint-order="stroke">YK</text>
+  <text x="0" y="18" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="72" font-weight="900" letter-spacing="-5"
+        fill="none" stroke="#F5D982" stroke-width="1.2"
+        stroke-dasharray="2.2 2.8" opacity="0.72">YK</text>
+</g></g></g></g></g>
 </svg>
