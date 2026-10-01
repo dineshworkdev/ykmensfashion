@@ -4,6 +4,7 @@ import { Search, Heart, ShoppingBag, Menu } from 'lucide-react'
 import { useCart } from '../../context/CartContext.jsx'
 import { useWishlist } from '../../context/WishlistContext.jsx'
 import MobileMenu from './MobileMenu.jsx'
+import YkMonogram from '../common/YkMonogram.jsx'
 
 export const navLinks = [
   { to: '/shop', label: 'SHOP' },
@@ -50,8 +51,8 @@ export default function Navbar() {
             className="group flex items-center gap-2.5 transition-opacity hover:opacity-90 min-w-0 shrink"
             aria-label="YK MENS FASHION Home"
           >
-            <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-[2px] border border-espresso bg-espresso text-cream font-serif italic text-sm sm:text-base font-bold transition-transform group-hover:scale-105">
-              YK
+            <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-[2px] border border-espresso bg-espresso text-[#FFF1DF] p-1 transition-transform group-hover:scale-105">
+              <YkMonogram className="w-full h-full" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-sm sm:text-lg tracking-tight text-espresso leading-none">

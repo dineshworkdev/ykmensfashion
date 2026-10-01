@@ -8,42 +8,28 @@ import { WishlistProvider } from './context/WishlistContext.jsx'
 import './styles/index.css'
 
 // ─── Brand loader ────────────────────────────────────────────────────────────
-// Displays the brand intro animation video for its full duration before transitioning out.
+// Displays the SVG brand intro animation, perfectly centered on screen.
 function Loader({ onDone }) {
-  const videoRef = useRef(null)
-
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true
-      const playPromise = videoRef.current.play()
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn('Autoplay prevented:', err)
-          setTimeout(onDone, 4000)
-        })
-      }
-    }
+    // SVG animation duration is ~3s; give it 3.1s then transition out
+    const t = setTimeout(onDone, 3100)
+    return () => clearTimeout(t)
   }, [onDone])
 
   return (
     <motion.div
       className="fixed inset-0 z-[999] flex items-center justify-center bg-[#FFF1DF] overflow-hidden"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <video
-        ref={videoRef}
-        src="/videos/animation.mp4"
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        disablePictureInPicture
-        disableRemotePlayback
-        onEnded={onDone}
-        onError={onDone}
-        className="w-full h-full object-contain pointer-events-none"
-      />
+      {/* SVG container — responsive, centered, preserves native proportions */}
+      <div className="relative w-full h-full max-w-[600px] max-h-[85vh] flex items-center justify-center p-4">
+        <img
+          src="/videos/yk-animation.svg"
+          alt="YK Mens Fashion"
+          className="w-full h-full object-contain pointer-events-none select-none"
+        />
+      </div>
     </motion.div>
   )
 }

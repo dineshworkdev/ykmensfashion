@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { navLinks } from './Navbar.jsx'
+import YkMonogram from '../common/YkMonogram.jsx'
 
 export default function MobileMenu({ open, onClose }) {
   return (
@@ -29,8 +30,8 @@ export default function MobileMenu({ open, onClose }) {
             {/* Top Bar */}
             <div className="p-5 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="flex h-7 w-7 items-center justify-center rounded-[2px] border border-white/30 bg-white/10 text-white font-serif italic text-sm font-bold">
-                  YK
+                <div className="flex h-7 w-7 items-center justify-center rounded-[2px] border border-white/30 bg-white/10 text-white p-1">
+                  <YkMonogram className="w-full h-full" />
                 </div>
                 <span className="font-display font-bold text-sm tracking-tight text-white">
                   YK MENS FASHION
