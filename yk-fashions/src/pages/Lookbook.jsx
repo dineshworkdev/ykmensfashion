@@ -126,26 +126,26 @@ export default function Lookbook() {
               transition={{ duration: 0.5 }}
             >
               {/* Refined Look Card */}
-              <div className="bg-white rounded-sm border border-espresso/15 hover:border-espresso/35 p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="bg-white rounded-[5px] border border-espresso/15 hover:border-espresso/30 p-3.5 sm:p-4 shadow-[0_4px_20px_rgba(42,32,24,0.05)] hover:shadow-[0_12px_32px_rgba(42,32,24,0.1)] transition-all duration-500">
                 {/* Photo frame */}
                 <div
                   onClick={() => setSelectedPhoto(look)}
-                  className={`relative ${look.aspect} w-full rounded-[2px] overflow-hidden bg-[#F4EDE4] cursor-pointer`}
+                  className={`relative ${look.aspect} w-full rounded-[4px] overflow-hidden bg-[#F4EDE4] cursor-pointer`}
                 >
                   <img
                     src={look.src}
                     alt={look.title}
-                    className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    className="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                     loading="lazy"
                   />
 
                   {/* Clean Plate Tag */}
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-[2px] border border-espresso/15 bg-white/95 text-[9px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs">
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-[3px] border border-espresso/15 bg-white/95 text-[9px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs backdrop-blur-xs">
                     {look.tag}
                   </div>
 
                   {/* Zoom hint */}
-                  <div className="absolute bottom-2.5 right-2.5 px-2 py-1 rounded-[2px] border border-espresso/15 bg-white/95 text-[9px] font-bold uppercase tracking-wider text-espresso opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-xs">
+                  <div className="absolute bottom-2.5 right-2.5 px-2 py-1 rounded-[3px] border border-espresso/15 bg-white/95 text-[9px] font-bold uppercase tracking-wider text-espresso opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-xs backdrop-blur-xs">
                     <ZoomIn className="w-3 h-3" />
                     <span>EXPAND</span>
                   </div>
@@ -210,7 +210,7 @@ export default function Lookbook() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative z-10 max-w-3xl w-full rounded-sm border border-espresso/25 bg-white p-4 sm:p-6 shadow-2xl"
+              className="relative z-10 max-w-3xl w-full rounded-[6px] border border-espresso/20 bg-white p-4 sm:p-6 shadow-[0_25px_60px_rgba(42,32,24,0.22)]"
             >
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-espresso/15">
                 <span className="font-display font-bold text-sm text-espresso">
@@ -218,14 +218,14 @@ export default function Lookbook() {
                 </span>
                 <button
                   onClick={() => setSelectedPhoto(null)}
-                  className="h-7 w-7 rounded-[2px] border border-espresso/20 text-espresso flex items-center justify-center hover:bg-espresso hover:text-white transition-colors"
+                  className="h-7 w-7 rounded-[3px] border border-espresso/20 text-espresso flex items-center justify-center hover:bg-espresso hover:text-white transition-colors"
                   aria-label="Close modal"
                 >
                   <X className="w-4 h-4 stroke-[2]" />
                 </button>
               </div>
 
-              <div className="relative aspect-[16/10] w-full rounded-[2px] overflow-hidden mb-4 bg-[#F4EDE4]">
+              <div className="relative aspect-[16/10] w-full rounded-[4px] overflow-hidden mb-4 bg-[#F4EDE4]">
                 <img
                   src={selectedPhoto.src}
                   alt={selectedPhoto.title}

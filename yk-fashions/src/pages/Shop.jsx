@@ -80,7 +80,7 @@ export default function Shop() {
       <section className="border-b border-espresso/20 bg-[#161311] text-white py-12 sm:py-16">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-white/20 bg-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFF1DF] mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[3px] border border-white/20 bg-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFF1DF] mb-3">
               <DoodleStar className="w-3 h-3 text-coral" />
               COMPLETE COLLECTION
             </div>
@@ -113,10 +113,10 @@ export default function Shop() {
                     setSearchParams({})
                   }
                 }}
-                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[2px] font-sans text-xs font-bold uppercase tracking-[0.12em] transition-all ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[3px] font-sans text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 active:scale-95 ${
                   activeCategory === tab.id
                     ? 'bg-espresso text-cream shadow-xs'
-                    : 'bg-white/80 border border-espresso/15 text-espresso/80 hover:text-espresso hover:bg-white'
+                    : 'bg-white/80 border border-espresso/15 text-espresso/80 hover:text-espresso hover:bg-white hover:-translate-y-[0.5px]'
                 }`}
               >
                 {tab.label}
@@ -133,7 +133,7 @@ export default function Shop() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search collection..."
-                className="w-full pl-8 pr-7 py-1.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso placeholder-espresso/45 focus:outline-none focus:border-espresso"
+                className="w-full pl-8 pr-7 py-1.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso placeholder-espresso/45 focus:outline-none focus:border-espresso transition-colors"
               />
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-espresso/50" />
               {searchTerm && (
@@ -156,7 +156,7 @@ export default function Shop() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-2.5 py-1.5 rounded-[2px] border border-espresso/25 bg-white font-sans text-xs font-medium text-espresso focus:outline-none focus:border-espresso cursor-pointer"
+                className="px-2.5 py-1.5 rounded-[3px] border border-espresso/20 bg-white font-sans text-xs font-medium text-espresso focus:outline-none focus:border-espresso cursor-pointer transition-colors"
               >
                 {sortOptions.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -183,7 +183,7 @@ export default function Shop() {
           </div>
 
           {filteredProducts.length === 0 ? (
-            <div className="py-20 text-center rounded-sm border border-espresso/15 bg-white text-espresso p-8 shadow-sm max-w-lg mx-auto">
+            <div className="py-20 text-center rounded-[5px] border border-espresso/15 bg-white text-espresso p-8 shadow-[0_4px_20px_rgba(42,32,24,0.04)] max-w-lg mx-auto">
               <Shirt className="w-10 h-10 text-espresso/30 mx-auto mb-3" />
               <h3 className="font-display font-bold text-xl text-espresso mb-2">
                 No pieces match your selection

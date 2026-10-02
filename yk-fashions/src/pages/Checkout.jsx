@@ -52,13 +52,13 @@ export default function Checkout() {
     return (
       <div className="bg-[#FFF1DF] min-h-screen py-16 sm:py-24 text-espresso">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
-          <div className="bg-white rounded-sm border border-espresso/20 p-8 sm:p-12 text-center shadow-md relative overflow-hidden">
+          <div className="bg-white rounded-[6px] border border-espresso/15 p-8 sm:p-12 text-center shadow-[0_20px_50px_rgba(42,32,24,0.12)] relative overflow-hidden">
             {/* Atelier Stamp */}
             <div className="flex justify-center mb-6">
               <RetroStampBadge className="w-20 h-20 text-forest" centerText="PAID" />
             </div>
 
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] border border-teal/30 bg-teal/10 text-teal text-[10px] font-bold uppercase tracking-[0.16em] mb-3">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[3px] border border-teal/30 bg-teal/10 text-teal text-[10px] font-bold uppercase tracking-[0.16em] mb-3">
               <Sparkles className="w-3 h-3" />
               ORDER CONFIRMED
             </span>
@@ -73,7 +73,7 @@ export default function Checkout() {
             </p>
 
             {/* Order Specs Box */}
-            <div className="p-4 rounded-[2px] border border-espresso/15 bg-[#FFF1DF]/60 max-w-md mx-auto text-left mb-8 text-xs font-medium text-espresso">
+            <div className="p-4 rounded-[4px] border border-espresso/15 bg-[#FFF1DF]/60 max-w-md mx-auto text-left mb-8 text-xs font-medium text-espresso">
               <div className="flex justify-between py-1.5 border-b border-espresso/10">
                 <span className="text-espresso/60 uppercase">ORDER NUMBER</span>
                 <span className="font-mono font-bold text-coral">#{orderId}</span>
@@ -126,7 +126,7 @@ export default function Checkout() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         {/* ── Checkout Header ─────────────────────────────── */}
         <div className="mb-8 pb-4 border-b border-espresso/15">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.16em] text-espresso mb-2">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[3px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.16em] text-espresso mb-2">
             <ShieldCheck className="w-3 h-3 text-teal" />
             DISPATCH CHECKOUT
           </div>
@@ -146,7 +146,7 @@ export default function Checkout() {
             <button
               key={s.num}
               onClick={() => setActiveStep(s.num)}
-              className={`p-2 rounded-[2px] border text-center transition-all ${
+              className={`p-2 rounded-[3px] border text-center transition-all ${
                 activeStep === s.num
                   ? 'border-espresso bg-espresso text-cream shadow-xs font-bold'
                   : activeStep > s.num
@@ -171,7 +171,7 @@ export default function Checkout() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left: Step Form Content (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-sm border border-espresso/20 p-6 sm:p-8 shadow-sm">
+            <div className="bg-white rounded-[5px] border border-espresso/15 p-6 sm:p-8 shadow-[0_4px_24px_rgba(42,32,24,0.05)]">
               {/* Step 1: Contact Details */}
               {activeStep === 1 && (
                 <div>
@@ -189,7 +189,7 @@ export default function Checkout() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                     <div>
@@ -201,7 +201,7 @@ export default function Checkout() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                   </div>
@@ -232,7 +232,7 @@ export default function Checkout() {
                         name="firstName"
                         value={form.firstName}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                     <div>
@@ -244,7 +244,7 @@ export default function Checkout() {
                         name="lastName"
                         value={form.lastName}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                   </div>
@@ -258,7 +258,7 @@ export default function Checkout() {
                       name="address"
                       value={form.address}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                      className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                     />
                   </div>
 
@@ -272,7 +272,7 @@ export default function Checkout() {
                         name="city"
                         value={form.city}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                     <div>
@@ -284,7 +284,7 @@ export default function Checkout() {
                         name="state"
                         value={form.state}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                     <div>
@@ -296,7 +296,7 @@ export default function Checkout() {
                         name="pincode"
                         value={form.pincode}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-[2px] border border-espresso/25 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso"
+                        className="w-full px-3.5 py-2.5 rounded-[3px] border border-espresso/20 bg-white text-xs font-medium text-espresso focus:outline-none focus:border-espresso transition-colors"
                       />
                     </div>
                   </div>
@@ -331,7 +331,7 @@ export default function Checkout() {
                   <div className="space-y-2.5 mb-6">
                     {/* UPI Option */}
                     <label
-                      className={`flex items-center justify-between p-3.5 rounded-[2px] border cursor-pointer transition-all ${
+                      className={`flex items-center justify-between p-3.5 rounded-[4px] border cursor-pointer transition-all ${
                         form.paymentMethod === 'upi'
                           ? 'border-espresso bg-[#F9F3EA] shadow-xs'
                           : 'border-espresso/20 bg-white hover:border-espresso/40'
@@ -360,7 +360,7 @@ export default function Checkout() {
 
                     {/* Card Option */}
                     <label
-                      className={`flex items-center justify-between p-3.5 rounded-[2px] border cursor-pointer transition-all ${
+                      className={`flex items-center justify-between p-3.5 rounded-[4px] border cursor-pointer transition-all ${
                         form.paymentMethod === 'card'
                           ? 'border-espresso bg-[#F9F3EA] shadow-xs'
                           : 'border-espresso/20 bg-white hover:border-espresso/40'
@@ -389,7 +389,7 @@ export default function Checkout() {
 
                     {/* COD Option */}
                     <label
-                      className={`flex items-center justify-between p-3.5 rounded-[2px] border cursor-pointer transition-all ${
+                      className={`flex items-center justify-between p-3.5 rounded-[4px] border cursor-pointer transition-all ${
                         form.paymentMethod === 'cod'
                           ? 'border-espresso bg-[#F9F3EA] shadow-xs'
                           : 'border-espresso/20 bg-white hover:border-espresso/40'
@@ -444,7 +444,7 @@ export default function Checkout() {
                     <span className="text-[10px] font-bold text-coral uppercase tracking-wider">STEP 4 OF 4</span>
                   </h3>
 
-                  <div className="p-4 rounded-[2px] border border-espresso/15 bg-[#FFF1DF]/60 mb-6 space-y-2.5 text-xs text-espresso">
+                  <div className="p-4 rounded-[4px] border border-espresso/15 bg-[#FFF1DF]/60 mb-6 space-y-2.5 text-xs text-espresso">
                     <div className="flex justify-between">
                       <span className="text-espresso/60 uppercase">RECIPIENT:</span>
                       <span className="font-semibold">{form.firstName} {form.lastName}</span>
@@ -487,7 +487,7 @@ export default function Checkout() {
 
           {/* Right: Order Summary Sidebar (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="bg-white rounded-sm border border-espresso/20 p-6 shadow-sm sticky top-24">
+            <div className="bg-white rounded-[5px] border border-espresso/15 p-6 shadow-[0_4px_24px_rgba(42,32,24,0.05)] sticky top-24">
               <h4 className="font-display font-bold text-base text-espresso mb-4 pb-2 border-b border-espresso/15">
                 PACKAGE CONTENTS ({totalQty})
               </h4>
@@ -498,7 +498,7 @@ export default function Checkout() {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="h-12 w-10 rounded-[2px] border border-espresso/15 object-cover"
+                      className="h-12 w-10 rounded-[3px] border border-espresso/15 object-cover"
                     />
                     <div className="flex-1 min-w-0">
                       <h5 className="font-display font-medium text-xs text-espresso truncate">

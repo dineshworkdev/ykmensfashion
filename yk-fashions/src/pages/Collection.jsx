@@ -65,7 +65,7 @@ export default function Collection() {
             {/* Left text & metadata */}
             <div className="lg:col-span-7 flex flex-col items-start">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] border border-white/20 bg-white/10 text-white text-[10px] font-bold uppercase tracking-[0.18em] mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[3px] border border-white/20 bg-white/10 text-white text-[10px] font-bold uppercase tracking-[0.18em] mb-4">
                 <DoodleStar className="w-3 h-3 text-coral" />
                 <span>{colData.badge || 'ATELIER SERIES'}</span>
               </div>
@@ -88,13 +88,13 @@ export default function Collection() {
               </p>
 
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="px-2.5 py-1 rounded-[3px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
                   {colProducts.length} T-SHIRTS AVAILABLE
                 </span>
-                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="px-2.5 py-1 rounded-[3px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
                   240 GSM COMBD COTTON
                 </span>
-                <span className="px-2.5 py-1 rounded-[2px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="px-2.5 py-1 rounded-[3px] bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white">
                   100% ORGANIC
                 </span>
               </div>
@@ -102,14 +102,14 @@ export default function Collection() {
 
             {/* Right Campaign Poster */}
             <div className="lg:col-span-5 relative">
-              <div className="bg-white p-2.5 sm:p-3 rounded-sm border border-white/20 shadow-lg">
-                <div className="relative aspect-[4/3] rounded-[2px] overflow-hidden bg-[#F4EDE4]">
+              <div className="bg-white p-2.5 sm:p-3 rounded-[5px] border border-white/20 shadow-[0_12px_36px_rgba(0,0,0,0.2)]">
+                <div className="relative aspect-[4/3] rounded-[4px] overflow-hidden bg-[#F4EDE4]">
                   <img
                     src={colData.image}
                     alt={colData.name}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03]"
                   />
-                  <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-[2px] bg-white/95 border border-espresso/15 text-[9px] font-mono uppercase tracking-wider text-espresso">
+                  <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-[3px] bg-white/95 border border-espresso/15 text-[9px] font-mono uppercase tracking-wider text-espresso">
                     STUDIO CUT
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function Collection() {
               <Link
                 key={other.slug}
                 to={`/collection/${other.slug}`}
-                className="bg-white rounded-sm border border-espresso/15 hover:border-espresso/35 p-5 flex items-center justify-between group shadow-xs hover:shadow-md transition-all duration-300"
+                className="bg-white rounded-[5px] border border-espresso/15 hover:border-espresso/30 p-5 flex items-center justify-between group shadow-[0_4px_20px_rgba(42,32,24,0.05)] hover:shadow-[0_10px_28px_rgba(42,32,24,0.09)] transition-all duration-300"
               >
                 <div>
                   <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-coral block mb-1">
@@ -185,7 +185,7 @@ export default function Collection() {
                     {other.tagline}
                   </p>
                 </div>
-                <div className="h-9 w-9 rounded-full border border-espresso/20 flex items-center justify-center group-hover:bg-espresso group-hover:text-white transition-colors shrink-0">
+                <div className="h-9 w-9 rounded-[4px] border border-espresso/20 flex items-center justify-center group-hover:bg-espresso group-hover:text-white transition-all duration-200 shrink-0">
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>

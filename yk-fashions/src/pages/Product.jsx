@@ -97,18 +97,18 @@ export default function Product() {
           {/* ── Left Column: High-Res Image Gallery (7 cols) ── */}
           <div className="lg:col-span-7 flex flex-col gap-3.5">
             {/* Main Stage Image Frame */}
-            <div className="relative bg-white rounded-sm border border-espresso/20 p-2 sm:p-2.5 shadow-sm overflow-hidden">
-              <div className="relative aspect-[4/5] w-full rounded-[2px] overflow-hidden bg-[#F4EDE4]">
+            <div className="relative bg-white rounded-[5px] border border-espresso/15 p-2 sm:p-2.5 shadow-[0_4px_20px_rgba(42,32,24,0.06)] overflow-hidden">
+              <div className="relative aspect-[4/5] w-full rounded-[4px] overflow-hidden bg-[#F4EDE4] group">
                 <img
                   src={product.images[mainImgIdx] || product.images[0]}
                   alt={product.name}
-                  className="h-full w-full object-cover object-center transition-all duration-300"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.025]"
                 />
 
                 {/* Subtle Archival Badge */}
                 {product.badge && (
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2.5 py-1 rounded-[2px] border border-espresso/20 bg-white/95 text-[10px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs backdrop-blur-xs">
+                    <span className="px-2.5 py-1 rounded-[3px] border border-espresso/20 bg-white/95 text-[10px] font-bold uppercase tracking-[0.14em] text-espresso shadow-xs backdrop-blur-xs">
                       {product.badge}
                     </span>
                   </div>
@@ -116,7 +116,7 @@ export default function Product() {
 
                 {/* Subtle Atelier Spec Stamp */}
                 <div className="absolute bottom-3 right-3 hidden sm:block">
-                  <div className="px-2.5 py-1 rounded-[2px] border border-espresso/15 bg-white/90 backdrop-blur-xs text-[10px] font-mono uppercase tracking-wider text-espresso">
+                  <div className="px-2.5 py-1 rounded-[3px] border border-espresso/15 bg-white/90 backdrop-blur-xs text-[10px] font-mono uppercase tracking-wider text-espresso">
                     240 GSM COMBD COTTON
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export default function Product() {
                   <button
                     key={idx}
                     onClick={() => setMainImgIdx(idx)}
-                    className={`relative aspect-square w-20 sm:w-24 rounded-[2px] border overflow-hidden transition-all ${
+                    className={`relative aspect-square w-20 sm:w-24 rounded-[4px] border overflow-hidden transition-all duration-300 ${
                       mainImgIdx === idx
                         ? 'border-espresso ring-1 ring-espresso shadow-xs'
                         : 'border-espresso/20 opacity-70 hover:opacity-100 hover:border-espresso/40'
@@ -145,7 +145,7 @@ export default function Product() {
 
           {/* ── Right Column: Retail Buy Box & Specs (5 cols) ── */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="bg-white rounded-sm border border-espresso/20 p-6 sm:p-8 shadow-sm">
+            <div className="bg-white rounded-[5px] border border-espresso/15 p-6 sm:p-8 shadow-[0_4px_24px_rgba(42,32,24,0.05)]">
               {/* Collection & Season metadata */}
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
@@ -169,7 +169,7 @@ export default function Product() {
                 <span className="text-xs font-normal text-espresso/40 line-through">
                   {formatPrice(Math.round(product.price * 1.35))}
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-teal px-2 py-0.5 rounded-[2px] border border-teal/30 bg-teal/5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal px-2 py-0.5 rounded-[3px] border border-teal/30 bg-teal/5">
                   IN STOCK • SHIPS IN 24H
                 </span>
               </div>
@@ -192,7 +192,7 @@ export default function Product() {
                       <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-[2px] border text-xs font-semibold transition-all ${
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-[3px] border text-xs font-semibold transition-all duration-200 ${
                           selectedColor === color
                             ? 'border-espresso bg-espresso text-cream'
                             : 'border-espresso/20 bg-white text-espresso hover:border-espresso/40'
@@ -217,7 +217,7 @@ export default function Product() {
                   </span>
                   <button
                     onClick={() => setShowSizeGuide(true)}
-                    className="text-[11px] font-bold text-coral underline underline-offset-2 hover:text-espresso"
+                    className="text-[11px] font-bold text-coral underline underline-offset-2 hover:text-espresso transition-colors"
                   >
                     SIZE GUIDE ?
                   </button>
@@ -227,7 +227,7 @@ export default function Product() {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`py-2 rounded-[2px] font-sans font-bold text-xs uppercase tracking-wider transition-all ${
+                      className={`py-2 rounded-[3px] font-sans font-bold text-xs uppercase tracking-wider transition-all duration-200 ${
                         selectedSize === size
                           ? 'border border-espresso bg-espresso text-cream shadow-xs'
                           : 'border border-espresso/20 bg-white text-espresso hover:border-espresso/50'
@@ -243,7 +243,7 @@ export default function Product() {
               <div className="flex flex-col gap-2.5 mb-6">
                 <div className="flex items-center gap-2.5">
                   {/* Quantity Stepper */}
-                  <div className="flex items-center rounded-[2px] border border-espresso/30 bg-white h-11 shrink-0">
+                  <div className="flex items-center rounded-[3px] border border-espresso/30 bg-white h-11 shrink-0 overflow-hidden">
                     <button
                       onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                       className="px-3 h-full flex items-center justify-center text-espresso hover:bg-[#F9F3EA] transition-colors"
@@ -288,8 +288,8 @@ export default function Product() {
                   <button
                     onClick={() => toggle(product.id)}
                     aria-label="Save to Wishlist"
-                    className={`flex h-11 w-11 items-center justify-center rounded-[2px] border border-espresso/25 transition-all active:scale-95 shrink-0 ${
-                      wished ? 'bg-coral border-coral text-white' : 'bg-white text-espresso hover:border-espresso'
+                    className={`flex h-11 w-11 items-center justify-center rounded-[3px] border border-espresso/25 transition-all duration-200 active:scale-95 shrink-0 ${
+                      wished ? 'bg-coral border-coral text-white' : 'bg-white text-espresso hover:border-espresso hover:bg-[#FAF6EE]'
                     }`}
                   >
                     <Heart
@@ -302,14 +302,14 @@ export default function Product() {
                 {/* Instant Buy Now Button */}
                 <button
                   onClick={handleBuyNow}
-                  className="w-full h-10 rounded-[2px] border border-espresso/30 bg-white text-espresso font-sans font-bold text-xs uppercase tracking-[0.14em] hover:bg-[#F9F3EA] transition-colors"
+                  className="w-full h-10 rounded-[3px] border border-espresso/30 bg-white text-espresso font-sans font-bold text-xs uppercase tracking-[0.14em] hover:bg-[#F9F3EA] hover:border-espresso transition-all duration-200"
                 >
                   BUY NOW WITH 1-CLICK
                 </button>
               </div>
 
               {/* Guarantees Box */}
-              <div className="p-3.5 rounded-[2px] border border-espresso/15 bg-[#FFF1DF]/60 flex flex-col gap-2 text-xs text-espresso/80">
+              <div className="p-3.5 rounded-[4px] border border-espresso/15 bg-[#FFF1DF]/60 flex flex-col gap-2 text-xs text-espresso/80">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-coral shrink-0" />
                   <span>Free express shipping nationwide on orders over ₹1,999</span>
@@ -326,7 +326,7 @@ export default function Product() {
             </div>
 
             {/* ── Accordion Specifications ── */}
-            <div className="bg-white rounded-sm border border-espresso/20 p-4 shadow-sm">
+            <div className="bg-white rounded-[5px] border border-espresso/15 p-4 shadow-[0_4px_20px_rgba(42,32,24,0.04)]">
               {/* Accordion 1: Fabric & Care */}
               <div className="border-b border-espresso/10 pb-3">
                 <button
@@ -446,7 +446,7 @@ export default function Product() {
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
-              className="relative z-10 w-full max-w-lg rounded-sm border border-espresso/25 bg-white p-6 sm:p-8 shadow-xl"
+              className="relative z-10 w-full max-w-lg rounded-[6px] border border-espresso/20 bg-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(42,32,24,0.18)]"
             >
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-espresso/15">
                 <div>
@@ -459,7 +459,7 @@ export default function Product() {
                 </div>
                 <button
                   onClick={() => setShowSizeGuide(false)}
-                  className="h-7 w-7 rounded-[2px] border border-espresso/20 text-espresso flex items-center justify-center hover:bg-espresso hover:text-white transition-colors"
+                  className="h-7 w-7 rounded-[3px] border border-espresso/20 text-espresso flex items-center justify-center hover:bg-espresso hover:text-white transition-colors"
                   aria-label="Close size guide"
                 >
                   <X className="w-4 h-4 stroke-[2]" />

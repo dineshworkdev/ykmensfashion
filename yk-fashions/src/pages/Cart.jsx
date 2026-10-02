@@ -62,7 +62,7 @@ export default function Cart() {
             {/* ── Left Column: Line Items (7 cols) ── */}
             <div className="lg:col-span-7 flex flex-col gap-4">
               {/* Free Shipping Alert Bar */}
-              <div className="bg-white rounded-sm border border-espresso/15 p-4 shadow-xs">
+              <div className="bg-white rounded-[5px] border border-espresso/15 p-4 shadow-[0_2px_10px_rgba(42,32,24,0.03)]">
                 <div className="flex items-center justify-between text-xs font-semibold mb-2">
                   <span className="text-espresso flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-teal" />
@@ -94,13 +94,13 @@ export default function Cart() {
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.98 }}
-                      className="bg-white rounded-sm border border-espresso/15 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between shadow-xs"
+                      className="bg-white rounded-[5px] border border-espresso/15 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between shadow-[0_2px_12px_rgba(42,32,24,0.04)]"
                     >
                       {/* Product Thumbnail & Meta */}
                       <div className="flex items-center gap-4 min-w-0">
                         <Link
                           to={`/product/${item.slug}`}
-                          className="relative aspect-[3/4] w-20 sm:w-22 rounded-[2px] border border-espresso/15 overflow-hidden bg-[#F4EDE4] shrink-0"
+                          className="relative aspect-[3/4] w-20 sm:w-22 rounded-[3px] border border-espresso/15 overflow-hidden bg-[#F4EDE4] shrink-0"
                         >
                           <img
                             src={item.image}
@@ -127,7 +127,7 @@ export default function Cart() {
 
                       {/* Quantity Stepper & Price */}
                       <div className="flex items-center justify-between w-full sm:w-auto gap-4 pt-3 sm:pt-0 border-t sm:border-0 border-espresso/10">
-                        <div className="flex items-center rounded-[2px] border border-espresso/25 bg-white">
+                        <div className="flex items-center rounded-[3px] border border-espresso/25 bg-white overflow-hidden">
                           <button
                             onClick={() => decrement(item.key)}
                             className="p-1.5 text-espresso hover:bg-[#F9F3EA] transition-colors"
@@ -178,7 +178,7 @@ export default function Cart() {
 
             {/* ── Right Column: Order Summary (5 cols) ── */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-sm border border-espresso/20 p-6 sm:p-8 shadow-sm sticky top-24">
+              <div className="bg-white rounded-[5px] border border-espresso/15 p-6 sm:p-8 shadow-[0_4px_24px_rgba(42,32,24,0.06)] sticky top-24">
                 <h3 className="font-display font-bold text-lg sm:text-xl text-espresso mb-5 pb-3 border-b border-espresso/15">
                   ORDER SUMMARY
                 </h3>
@@ -227,7 +227,7 @@ export default function Cart() {
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       placeholder="e.g. DROP04"
-                      className="flex-1 px-3 py-2 rounded-[2px] border border-espresso/25 bg-white text-xs font-bold uppercase text-espresso placeholder-espresso/40 focus:outline-none focus:border-espresso"
+                      className="flex-1 px-3 py-2 rounded-[3px] border border-espresso/25 bg-white text-xs font-bold uppercase text-espresso placeholder-espresso/40 focus:outline-none focus:border-espresso transition-colors"
                     />
                     <button type="submit" className="retro-btn-outline py-2 px-3 text-xs font-bold">
                       APPLY

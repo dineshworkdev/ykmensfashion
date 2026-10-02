@@ -74,7 +74,7 @@ export default function Footer() {
           {/* Brand Info & Atelier Hallmark (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-[2px] border border-white/30 bg-white/10 text-white font-serif italic text-base font-bold">
+              <div className="flex h-8 w-8 items-center justify-center rounded-[3px] border border-white/30 bg-white/10 text-white font-serif italic text-base font-bold">
                 YK
               </div>
               <span className="font-display font-bold text-xl tracking-tight text-white">
@@ -88,7 +88,7 @@ export default function Footer() {
             </p>
 
             {/* Atelier Hallmark Stamp */}
-            <div className="p-3 rounded-[2px] border border-white/15 bg-white/5 flex items-center gap-3">
+            <div className="p-3 rounded-[4px] border border-white/15 bg-white/5 flex items-center gap-3">
               <RetroStampBadge className="w-12 h-12 text-[#FFF1DF]" centerText="YK" text="100% HEAVY COTTON • YK MENS FASHION • " />
               <div>
                 <span className="font-sans font-bold text-xs text-white block">
@@ -113,7 +113,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         to={link.to}
-                        className="text-xs text-[#FFF1DF]/75 hover:text-white transition-colors"
+                        className="text-xs text-[#FFF1DF]/75 hover:text-white transition-colors duration-200 inline-block hover:translate-x-0.5"
                       >
                         {link.label}
                       </Link>
@@ -138,7 +138,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-2 rounded-[2px] border border-white/15 bg-white/5 hover:bg-white/10 transition-all text-xs font-medium text-white group"
+                    className="flex items-center justify-between p-2.5 rounded-[3px] border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-200 text-xs font-medium text-white group hover:-translate-y-[0.5px]"
                   >
                     <div className="flex items-center gap-2">
                       <IconComponent className="w-4 h-4 text-coral" />
@@ -146,14 +146,14 @@ export default function Footer() {
                     </div>
                     <span className="text-[10px] text-[#FFF1DF]/60 flex items-center gap-1">
                       <span>{social.handle}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </span>
                   </a>
                 )
               })}
             </div>
 
-            <div className="p-3 rounded-[2px] border border-white/10 bg-white/5 flex items-start gap-2.5">
+            <div className="p-3 rounded-[4px] border border-white/10 bg-white/5 flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-coral shrink-0 mt-0.5" />
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-white block mb-0.5">

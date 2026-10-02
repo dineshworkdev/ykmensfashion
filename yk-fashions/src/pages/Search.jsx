@@ -35,7 +35,7 @@ export default function Search() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         {/* ── Search Hero ─────────────────────────────────── */}
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.16em] text-espresso mb-3 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[3px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.16em] text-espresso mb-3 shadow-xs">
             <DoodleStar className="w-3 h-3 text-coral" />
             SEARCH T-SHIRTS
           </div>
@@ -54,7 +54,7 @@ export default function Search() {
 
           {/* ── Architectural Search Input ── */}
           <div className="relative max-w-xl mx-auto">
-            <div className="relative flex items-center rounded-sm border border-espresso/30 bg-white p-2 shadow-sm focus-within:border-espresso transition-all">
+            <div className="relative flex items-center rounded-[5px] border border-espresso/20 bg-white p-2 shadow-[0_4px_20px_rgba(42,32,24,0.06)] focus-within:border-espresso focus-within:shadow-[0_4px_24px_rgba(42,32,24,0.1)] transition-all duration-300">
               <div className="pl-3 pr-2 text-espresso/50 flex items-center justify-center">
                 <SearchIcon className="w-5 h-5" strokeWidth={1.8} />
               </div>
@@ -69,7 +69,7 @@ export default function Search() {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="mr-2 flex h-6 w-6 items-center justify-center rounded-[2px] border border-espresso/20 text-espresso hover:bg-espresso hover:text-white transition-colors"
+                  className="mr-2 flex h-6 w-6 items-center justify-center rounded-[3px] border border-espresso/20 text-espresso hover:bg-espresso hover:text-white transition-colors"
                   aria-label="Clear query"
                 >
                   <X className="w-3.5 h-3.5 stroke-[2]" />
@@ -92,7 +92,7 @@ export default function Search() {
                   <button
                     key={item.label}
                     onClick={() => setQuery(item.query)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] border border-espresso/15 bg-white text-espresso font-sans text-xs font-medium hover:border-espresso/40 hover:bg-[#F9F3EA] transition-all"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] border border-espresso/15 bg-white text-espresso font-sans text-xs font-medium hover:border-espresso/40 hover:bg-[#F9F3EA] transition-all duration-200"
                   >
                     <IconComp className="w-3.5 h-3.5 text-coral" strokeWidth={1.8} />
                     <span>{item.label}</span>
@@ -121,7 +121,7 @@ export default function Search() {
             </div>
 
             {results.length === 0 ? (
-              <div className="py-16 text-center max-w-md mx-auto rounded-sm border border-espresso/15 bg-white p-8 shadow-xs">
+              <div className="py-16 text-center max-w-md mx-auto rounded-[5px] border border-espresso/15 bg-white p-8 shadow-[0_4px_20px_rgba(42,32,24,0.04)]">
                 <HelpCircle className="w-10 h-10 text-espresso/30 mx-auto mb-3" />
                 <h3 className="font-display font-bold text-lg text-espresso mb-1">
                   No Matching Pieces Found

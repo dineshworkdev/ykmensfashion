@@ -37,7 +37,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left text */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.18em] text-espresso mb-4 shadow-xs">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[3px] border border-espresso/20 bg-white text-[10px] font-bold uppercase tracking-[0.18em] text-espresso mb-4 shadow-xs">
                 <DoodleStar className="w-3 h-3 text-coral" />
                 OUR ORIGIN STORY
               </div>
@@ -57,7 +57,7 @@ export default function About() {
                 shape after two washes.
               </p>
 
-              <div className="p-4 sm:p-5 rounded-sm border border-espresso/20 bg-white/90 max-w-lg mb-8 shadow-xs">
+              <div className="p-4 sm:p-5 rounded-[5px] border border-espresso/15 bg-white/90 max-w-lg mb-8 shadow-[0_4px_20px_rgba(42,32,24,0.04)]">
                 <p className="font-serif italic text-lg sm:text-xl text-espresso leading-snug">
                   "If a men's t-shirt doesn't look even better five years from today with
                   faded ink and softened cotton patina, we haven't done our job."
@@ -75,14 +75,14 @@ export default function About() {
 
             {/* Right Photo Frame */}
             <div className="lg:col-span-5 relative">
-              <div className="bg-white p-2.5 sm:p-3 rounded-sm border border-espresso/20 shadow-md">
-                <div className="relative aspect-[4/5] rounded-[2px] overflow-hidden bg-[#F4EDE4]">
+              <div className="bg-white p-2.5 sm:p-3 rounded-[5px] border border-espresso/15 shadow-[0_12px_36px_rgba(42,32,24,0.08)]">
+                <div className="relative aspect-[4/5] rounded-[4px] overflow-hidden bg-[#F4EDE4]">
                   <img
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1000&auto=format&fit=crop&q=80"
                     alt="Male model wearing YK Mens Fashion minimal heavyweight blank"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03]"
                   />
-                  <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-[2px] border border-espresso/15 bg-white/95 text-[10px] font-mono uppercase tracking-wider text-espresso">
+                  <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-[3px] border border-espresso/15 bg-white/95 text-[10px] font-mono uppercase tracking-wider text-espresso">
                     MUMBAI CUTTING ROOM
                   </div>
                 </div>
@@ -113,14 +113,14 @@ export default function About() {
               return (
                 <div
                   key={v.title}
-                  className="bg-white rounded-sm border border-white/20 text-espresso p-6 sm:p-8 flex flex-col justify-between shadow-md"
+                  className="bg-white rounded-[5px] border border-white/20 text-espresso p-6 sm:p-8 flex flex-col justify-between shadow-[0_8px_28px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.16)] transition-all duration-300"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="h-10 w-10 rounded-[2px] border border-espresso/20 bg-[#FFF1DF] flex items-center justify-center text-espresso">
+                      <span className="h-10 w-10 rounded-[3px] border border-espresso/20 bg-[#FFF1DF] flex items-center justify-center text-espresso">
                         <IconComp className="w-5 h-5 stroke-[1.8]" />
                       </span>
-                      <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-coral px-2.5 py-0.5 rounded-[2px] border border-coral/30 bg-coral/5">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-coral px-2.5 py-0.5 rounded-[3px] border border-coral/30 bg-coral/5">
                         {v.badge}
                       </span>
                     </div>

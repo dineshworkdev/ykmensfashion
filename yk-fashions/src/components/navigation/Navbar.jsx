@@ -48,10 +48,10 @@ export default function Navbar() {
           {/* Brand Identity */}
           <Link
             to="/"
-            className="group flex items-center gap-2.5 transition-opacity hover:opacity-90 min-w-0 shrink"
+            className="group flex items-center gap-2.5 transition-opacity hover:opacity-95 min-w-0 shrink"
             aria-label="YK MENS FASHION Home"
           >
-            <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-[2px] border border-espresso bg-espresso text-[#FFF1DF] p-1 transition-transform group-hover:scale-105">
+            <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-[3px] border border-espresso bg-espresso text-[#FFF1DF] p-1 transition-transform duration-300 group-hover:scale-105">
               <YkMonogram className="w-full h-full" />
             </div>
             <div className="flex flex-col">
@@ -71,7 +71,7 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `relative py-1 font-sans text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
+                  `relative py-1 font-sans text-xs font-semibold uppercase tracking-[0.14em] transition-colors duration-200 ${
                     isActive
                       ? 'text-espresso font-bold'
                       : 'text-espresso/70 hover:text-espresso'
@@ -82,7 +82,7 @@ export default function Navbar() {
                   <>
                     <span>{link.label}</span>
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-coral rounded-full" />
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-coral rounded-full" />
                     )}
                   </>
                 )}
@@ -95,7 +95,7 @@ export default function Navbar() {
             {/* Search */}
             <Link
               to="/search"
-              className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-[2px] border border-espresso/20 bg-white/80 text-espresso hover:border-espresso hover:bg-white active:scale-95 transition-all"
+              className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-[3px] border border-espresso/20 bg-white/80 text-espresso hover:border-espresso hover:bg-white hover:-translate-y-[0.5px] active:scale-95 transition-all duration-200"
               aria-label="Search items"
             >
               <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-espresso/80" strokeWidth={1.8} />
@@ -104,7 +104,7 @@ export default function Navbar() {
             {/* Wishlist */}
             <Link
               to="/shop"
-              className="relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-[2px] border border-espresso/20 bg-white/80 text-espresso hover:border-espresso hover:bg-white active:scale-95 transition-all"
+              className="relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-[3px] border border-espresso/20 bg-white/80 text-espresso hover:border-espresso hover:bg-white hover:-translate-y-[0.5px] active:scale-95 transition-all duration-200"
               aria-label="Wishlist"
               title="Saved items"
             >
@@ -124,7 +124,7 @@ export default function Navbar() {
             {/* Shopping Bag Button — Refined fashion retail CTA */}
             <Link
               to="/cart"
-              className="flex items-center gap-1.5 h-8 sm:h-9 px-2.5 sm:px-3 rounded-[2px] border border-espresso bg-espresso text-cream font-sans font-bold text-xs uppercase tracking-[0.12em] hover:bg-coral hover:border-coral transition-colors"
+              className="flex items-center gap-1.5 h-8 sm:h-9 px-2.5 sm:px-3 rounded-[3px] border border-espresso bg-espresso text-cream font-sans font-bold text-xs uppercase tracking-[0.12em] hover:bg-coral hover:border-coral hover:-translate-y-[0.5px] transition-all duration-200 shadow-xs"
               aria-label={`Shopping bag with ${totalQty} items`}
             >
               <ShoppingBag className="w-3.5 h-3.5" strokeWidth={2} />
@@ -137,7 +137,7 @@ export default function Navbar() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden flex h-8 w-8 items-center justify-center rounded-[2px] border border-espresso/30 bg-white/80 text-espresso hover:bg-white active:scale-95 transition-all"
+              className="lg:hidden flex h-8 w-8 items-center justify-center rounded-[3px] border border-espresso/30 bg-white/80 text-espresso hover:bg-white active:scale-95 transition-all"
               aria-label="Open mobile menu"
             >
               <Menu className="w-4 h-4 text-espresso" strokeWidth={2} />
